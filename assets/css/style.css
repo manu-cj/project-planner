@@ -3,10 +3,149 @@
   padding: 0;
 }
 
+.my-modal {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 5;
+  overflow: auto;
+  background-color: rgba(56, 55, 55, 0.475);
+}
+.my-modal .modal-section {
+  width: 33%;
+  background-color: rgb(250, 250, 250);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+.my-modal .modal-section .close-modal {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  padding-right: 15px;
+}
+.my-modal .modal-section .close-modal .fa-times {
+  font-size: 25px;
+  color: rgb(108, 105, 105);
+}
+.my-modal .modal-section .close-modal .fa-times:hover {
+  color: tomato;
+  cursor: pointer;
+}
+.my-modal .modal-section .form-task {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+}
+.my-modal .modal-section .form-task input {
+  width: 80%;
+  height: 30px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.my-modal .modal-section .form-task textarea {
+  width: 80%;
+  min-width: 50%;
+  max-width: 80%;
+  min-height: 100px;
+  max-height: 250px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.my-modal .modal-section .form-task input[type=submit] {
+  width: 30%;
+  cursor: pointer;
+}
+.my-modal .modal-section .form-task input[type=submit]:hover {
+  background-color: rgb(0, 191, 102);
+}
+.my-modal .modal-section .form-delete {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-align: center;
+}
+.my-modal .modal-section .form-delete label {
+  width: 100%;
+}
+.my-modal .modal-section .form-delete input[type=submit] {
+  padding: 10px;
+  font-weight: bold;
+  width: 100px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.my-modal .modal-section .form-delete input[name=delete-all-task] {
+  background-color: rgb(0, 191, 102);
+}
+.my-modal .modal-section .form-delete input[name=delete-all-task]:hover {
+  background-color: rgb(3, 148, 80);
+}
+.my-modal .modal-section .form-delete input[name=not-delete] {
+  background-color: tomato;
+}
+.my-modal .modal-section .form-delete input[name=not-delete]:hover {
+  background-color: rgb(214, 45, 15);
+}
+
+@media only screen and (max-width: 767px) {
+  .modal-section {
+    width: 80% !important;
+  }
+}
+header {
+  padding: 2%;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 0px 5px #1F3B58;
+  backdrop-filter: blur(6.2px);
+  -webkit-backdrop-filter: blur(3px);
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+header nav {
+  visibility: hidden;
+}
+@media screen and (max-width: 768px) {
+  header nav {
+    visibility: visible;
+  }
+  header nav a {
+    text-decoration: none;
+  }
+}
+
+.darkMode {
+  color: white;
+}
+.darkMode a {
+  color: white;
+}
+
 main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  z-index: 0;
   background-color: white;
 }
 @media screen and (max-width: 768px) {
@@ -50,35 +189,6 @@ header {
 
 main {
   color: rgb(0, 0, 120);
-}
-
-header {
-  padding: 2%;
-  background-color: rgba(255, 255, 255, 0.7);
-  box-shadow: 0px 0px 5px #1F3B58;
-  backdrop-filter: blur(6.2px);
-  -webkit-backdrop-filter: blur(3px);
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-}
-header nav {
-  visibility: hidden;
-}
-@media screen and (max-width: 768px) {
-  header nav {
-    visibility: visible;
-  }
-  header nav a {
-    text-decoration: none;
-  }
-}
-
-.darkMode {
-  color: white;
-}
-.darkMode a {
-  color: white;
 }
 
 button {
