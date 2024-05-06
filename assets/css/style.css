@@ -1,4 +1,8 @@
-<<<<<<< HEAD
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .my-modal {
   width: 100%;
   height: 100%;
@@ -8,7 +12,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 1;
+  z-index: 5;
   overflow: auto;
   background-color: rgba(56, 55, 55, 0.475);
 }
@@ -42,9 +46,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-weight: bold;
 }
 .my-modal .modal-section .form-task input {
-  width: 50%;
+  width: 80%;
   height: 30px;
   margin-top: 5px;
   margin-bottom: 10px;
@@ -67,13 +72,46 @@
 }
 .my-modal .modal-section .form-task input[type=submit]:hover {
   background-color: rgb(0, 191, 102);
-}/*# sourceMappingURL=style.css.map */
-=======
-* {
-  margin: 0;
-  padding: 0;
+}
+.my-modal .modal-section .form-delete {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-align: center;
+}
+.my-modal .modal-section .form-delete label {
+  width: 100%;
+}
+.my-modal .modal-section .form-delete input[type=submit] {
+  padding: 10px;
+  font-weight: bold;
+  width: 100px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.my-modal .modal-section .form-delete input[name=delete-all-task] {
+  background-color: rgb(0, 191, 102);
+}
+.my-modal .modal-section .form-delete input[name=delete-all-task]:hover {
+  background-color: rgb(3, 148, 80);
+}
+.my-modal .modal-section .form-delete input[name=not-delete] {
+  background-color: tomato;
+}
+.my-modal .modal-section .form-delete input[name=not-delete]:hover {
+  background-color: rgb(253, 80, 50);
 }
 
+@media only screen and (max-width: 767px) {
+  .modal-section {
+    width: 80% !important;
+  }
+}
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -149,5 +187,4 @@ button {
   background-color: rgb(255, 0, 0);
   color: rgb(255, 255, 255);
   border-color: rgb(255, 0, 0);
-}
->>>>>>> Adrien
+}/*# sourceMappingURL=style.css.map */

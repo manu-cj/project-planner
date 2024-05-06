@@ -3,7 +3,7 @@ const modal = (actionType, submitValue, index) => {
     const body = document.querySelector('body');
 
     //Création des élèments
-    let myModal = document.createElement('section');
+    let myModal = document.createElement('div');
     let modalSection = document.createElement('section');
     let closeDiv = document.createElement('div');
     let closeIcon = document.createElement('i');
@@ -69,16 +69,17 @@ const modal = (actionType, submitValue, index) => {
     form.appendChild(taskDateInput);
     form.appendChild(submitInput);
 
-    
-
+    //Fermeture de la modal et reset
     closeIcon.addEventListener('click', () => {
         myModal.style.display = 'none';
+        myModal.remove();
     })
     window.addEventListener('click', (e) => {
         if (e.target === myModal) {
             myModal.style.display = 'none';
+            myModal.remove();
         }
     })
 }   
 
-export default modal;
+export { modal };
