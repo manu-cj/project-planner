@@ -1,7 +1,9 @@
-// Creates class for Task with methods : deleteTask / editTask / update Storage.
-
+// Creates class for Task objects with methods : deleteTask / editTask / saveToLocalStorage.
 class Task {
-    // Adds a method to build Task objects. ID 
+    // List of properties that are accessible to edit
+    static properties = ["name", "description", "deadline", "status"]
+
+    // Adds a constructor to build Task objects.
     constructor(name, deadline, description, id) {
         this.id = id;
         this.name = name;
@@ -12,14 +14,21 @@ class Task {
     }
 
     // Allows to edit value of any task property.
-	// TO DO : add property check rule to check whether property actually exists !
     editTask(property, newValue) {
-        this[property] = newValue;
-        this.saveToLocalStorage();
+        // checks if the property given in parameter actually exists and is editable.
+        if (!properties.includes(property)) {
+            return "Error : the property you tried to edit does not exist. "
+        }
+        else {
+            this[property] = newValue;
+            this.saveToLocalStorage();
+        }
     }
 
+    // Deletes a Task from Storage
     deleteTask() {
         let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        // Filters list to exclude the object with its ID.
         tasks = tasks.filter(task => task.id !== this.id);
         localStorage.setItem("tasks", JSON.stringify(tasks));
     }
@@ -36,7 +45,6 @@ class Task {
         }
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
-
 }
 
 export { Task }
