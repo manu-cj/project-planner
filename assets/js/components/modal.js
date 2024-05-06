@@ -127,9 +127,11 @@ const modal = (actionType, submitValue, index) => {
   let radioValue = "";
 
   radioInputs.forEach((radio) => {
-    radioInputs[0].checked = true;
+    radioInputs[1].checked = true;
+    if (radio.checked === true) {
+        radioValue = radio.value;
+    }
     radio.addEventListener("change", () => {
-      console.log(radio.value);
       radioValue = radio.value;
     });
   });
