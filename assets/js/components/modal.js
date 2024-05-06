@@ -127,7 +127,7 @@ const modal = (actionType, submitValue, index) => {
   let radioValue = "";
 
   radioInputs.forEach((radio) => {
-    radioInputs[1].checked = true;
+    radioInputs[0].checked = true;
     if (radio.checked === true) {
         radioValue = radio.value;
     }
@@ -155,9 +155,11 @@ const modal = (actionType, submitValue, index) => {
       taskDateInput.value = tasks[idTask].deadline;
       if (tasks[idTask].status === "doing") {
         radioInputs[1].checked = true;
+        radioValue = "doing";
       }
       if (tasks[idTask].status === "done") {
         radioInputs[2].checked = true;
+        radioValue = "done";
       }
       
 
