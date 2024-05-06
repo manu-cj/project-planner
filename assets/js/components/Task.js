@@ -16,7 +16,7 @@ class Task {
     // Allows to edit value of any task property.
     editTask(property, newValue) {
         // checks if the property given in parameter actually exists and is editable.
-        if (!properties.includes(property)) {
+        if (!Task.properties.includes(property)) {
             return "Error : the property you tried to edit does not exist. "
         }
         else {
