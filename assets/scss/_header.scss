@@ -1,16 +1,21 @@
 header {
-    padding: 2%;
-    background-color:rgb(255, 255, 255, 0.7);
-    box-shadow: 0px 0px 5px #1F3B58;
+    display: flex;
+    height:10vh;
+    background-color: #484b6a;
+    box-shadow: 0px 0px 5px #484b6a;
     backdrop-filter: blur(6.2px);
     -webkit-backdrop-filter: blur(3px);
     align-items: center;
     text-align: center;
     justify-content: center;
+    box-sizing: border-box;
+    h1 {
+        font-weight: 400;
+    }
     nav {
-        visibility: hidden;
+        display:none;
         @include mobile {
-            visibility: visible;
+            display:block;
             a {
                 text-decoration: none;
             }
@@ -20,8 +25,8 @@ header {
 }
 
 .darkMode {
-    color: white;
+    color: $primary-color;
     a {
-        color: white;
+        color: $primary-color;
     }
 }

@@ -1,22 +1,38 @@
 main {
     display: flex;
     flex-direction: row;
+    min-height: 80vh;
+    padding : 3vh 2vh;
+    box-sizing: border-box;
     justify-content: space-between;
     z-index: 0;
-    background-color: white;
+    background-color: #e4e5f1;
     @include mobile {
-            flex-direction: column;
+        flex-direction: column;
     }
     section {
+        display:flex;
+        flex-direction: column;
         width: 30%;
-        margin: 2%;
-        padding: 1%;
-        background-color: rgb(255, 255, 255);
+        margin: 1.5em;
+        background-color: #f0f0f5;
         border-radius: 10px;
         box-shadow: 0px 0px 5px #1F3B58;
         backdrop-filter: blur(6.2px);
         -webkit-backdrop-filter: blur(3px);
         text-align: center;
+        h2 {
+            padding: 1vh 0;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px; 
+            font-weight: 400;
+            background-color: #484b6a;
+            color: white;
+            margin-bottom: .5em;
+        }
+        & > button {
+            align-self: flex-end !important;
+        }
         @include mobile {
             width: 95%;
         }  
@@ -30,6 +46,6 @@ main {
 
 .darkMode {
     section {
-        background-color: rgb(139, 0, 0);
+        background-color: $darkish-blue;
     }
 }
