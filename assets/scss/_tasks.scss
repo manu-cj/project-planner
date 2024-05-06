@@ -17,13 +17,26 @@
     }
 }
 
+.name_block {
+    display: flex;
+    justify-content: space-between;
+    text-align: right;
+    @include mobile {
+        flex-direction: column;
+        align-content: left;
+        > h3 {
+            order:2;
+            align-self: flex-start;
+        }
+    }
+}
+
 .controls {
-    justify-content: flex-end;
-    & > * {
+    align-self: flex-end;
+    img {
         padding: 0 5px;
     }
     img:hover {
         transform: scale(110%);
     }
-    text-align: right;
 }
