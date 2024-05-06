@@ -17,13 +17,20 @@
     }
 }
 
+.name_block {
+    display: flex;
+    justify-content: space-between;
+
+    text-align: right;
+}
+
 .controls {
-    justify-content: flex-end;
-    & > * {
+    align-self: flex-end;
+    
+    img {
         padding: 0 5px;
     }
     img:hover {
         transform: scale(110%);
     }
-    text-align: right;
 }
