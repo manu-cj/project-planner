@@ -1,13 +1,16 @@
 .task {
-    margin : .30em 0;
-    border: 1px solid rgb(60, 60, 79);
+    margin : 0.6em 1em;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 10px;
     text-align: left;
     display: flex;
     flex-direction: column;
+    flex-wrap:wrap;
     padding: 1vh;
-    gap: 5px;
+    overflow: hidden;
     cursor:grab;
+    word-wrap: wrap;
+    background-color: white;
     img {
         height: 25px;
         width: 25px;
@@ -16,12 +19,15 @@
     > * {
         display: flex;
         align-items: center;
+        text-align: justify;
+        padding : 0 0.40rem;
+        word-wrap: wrap;
     }
 }
 
 .task:hover {
-    // transform: scale(101%);
-    border: 2px solid rgb(164, 164, 164);
+    transition: ease 0.6s;
+    box-shadow: rgba(54, 54, 54, 0.20) 0px 1px 2px, rgb(51, 51, 51, 0.20) 0px 0px 0px 2px;
 }
 
 .name_block {
@@ -42,9 +48,12 @@
     align-self: flex-end;
     cursor: pointer;
     img {
-        padding: 0 5px;
+        width: 18px;
+        height: 18px;
+        padding-left: .8rem;
     }
     img:hover {
+        transition: ease 0.7s;
         transform: scale(110%);
     }
 }
