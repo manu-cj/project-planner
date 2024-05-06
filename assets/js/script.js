@@ -48,13 +48,20 @@ for (let i = 0; i < delete_task.length; i++) {
     
 }
 
-
 let buttonDarkMode = document.querySelector('.checkbox');
+let isDarkModeEnabled = localStorage.getItem('darkModeEnabled');
+    if (isDarkModeEnabled === 'true') {
+        darkMode();
+        buttonDarkMode.checked = true;
+    } else {
+        clear();
+        buttonDarkMode.checked = false;
+    }
+    
     buttonDarkMode.addEventListener('change', () => {
-        const isDarkModeEnabled = localStorage.getItem('darkModeEnabled');
         if (buttonDarkMode.checked) {
             darkMode();
         } else {
             clear();
         }
-    })
+    }) 
