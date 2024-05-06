@@ -40,9 +40,6 @@ main section h2 {
   color: white;
   margin-bottom: 0.5em;
 }
-main section > button {
-  align-self: flex-end !important;
-}
 @media screen and (max-width: 768px) {
   main section {
     width: 95%;
@@ -52,6 +49,15 @@ main .mode {
   position: fixed;
   bottom: 0px;
   right: 0px;
+}
+
+.tasks-container {
+  height: 80%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .darkMode section {
@@ -108,9 +114,10 @@ button {
   align-self: flex-end;
   margin-right: 1em;
   border: none;
-  border-radius: 0.75em;
+  border-radius: 5px;
   box-sizing: border-box;
-  transition: ease-in 0.5s;
+  transition: ease-in 0.2s;
+  cursor: pointer;
   padding: 5px 8px;
 }
 
@@ -297,7 +304,7 @@ button {
   }
 }
 .task {
-  margin: 0.3em 1em;
+  margin: 0.6em 1em;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-radius: 10px;
   text-align: left;

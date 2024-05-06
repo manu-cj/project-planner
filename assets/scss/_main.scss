@@ -30,9 +30,6 @@ main {
             color: white;
             margin-bottom: .5em;
         }
-        & > button {
-            align-self: flex-end !important;
-        }
         @include mobile {
             width: 95%;
         }  
@@ -42,6 +39,15 @@ main {
         bottom: 0px;
         right: 0px;
     }
+}
+
+.tasks-container {
+    height: 80%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .darkMode {
