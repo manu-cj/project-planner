@@ -3,6 +3,147 @@
   padding: 0;
 }
 
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 0;
+  background-color: white;
+}
+@media screen and (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+}
+main section {
+  width: 30%;
+  margin: 2%;
+  padding: 1%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px #1F3B58;
+  backdrop-filter: blur(6.2px);
+  -webkit-backdrop-filter: blur(3px);
+  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  main section {
+    width: 95%;
+  }
+}
+main .mode {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+}
+
+.darkMode section {
+  background-color: rgb(139, 0, 0);
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+  color: rgb(0, 0, 120);
+}
+
+main {
+  color: rgb(0, 0, 120);
+}
+
+header {
+  padding: 2%;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 0px 5px #1F3B58;
+  backdrop-filter: blur(6.2px);
+  -webkit-backdrop-filter: blur(3px);
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+header nav {
+  visibility: hidden;
+}
+@media screen and (max-width: 768px) {
+  header nav {
+    visibility: visible;
+  }
+  header nav a {
+    text-decoration: none;
+  }
+}
+
+.darkMode {
+  color: white;
+}
+.darkMode a {
+  color: white;
+}
+
+button {
+  border: none;
+  border-radius: 0.75em;
+  box-sizing: border-box;
+  border: 2px solid #474747;
+  padding: 4px;
+}
+
+.add:hover {
+  background-color: rgb(1, 170, 1);
+  color: rgb(255, 255, 255);
+  border-color: rgb(1, 170, 1);
+}
+
+.btnDelete:hover {
+  background-color: rgb(255, 0, 0);
+  color: rgb(255, 255, 255);
+  border-color: rgb(255, 0, 0);
+}
+
+.slider {
+  background-color: rgba(255, 255, 255, 0.168627451);
+  border-radius: 100px;
+  padding: 1px;
+  margin: 10px;
+  cursor: pointer;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  align-items: center;
+  position: relative;
+  display: block;
+  width: 51px;
+  height: 29px;
+  box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 5px inset, rgba(0, 0, 0, 0.21) 0px 0px 0px 24px inset, #22cc3f 0px 0px 0px 0px inset, rgba(224, 224, 224, 0.45) 0px 1px 0px 0px;
+}
+
+.slider::after {
+  content: "";
+  display: flex;
+  top: 2.3px;
+  left: 2px;
+  width: 26px;
+  height: 26px;
+  background-color: #e3e3e3;
+  border-radius: 200px;
+  position: absolute;
+  box-shadow: transparent 0px 0px 0px 2px, rgba(0, 0, 0, 0.3) 0px 6px 6px;
+  transition: left 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s, background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  will-change: left, background-color;
+}
+
+.switch input[type=checkbox]:checked + .slider {
+  box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 5px inset, #22cc3f 0px 0px 0px 2px inset, #22cc3f 0px 0px 0px 24px inset, rgba(224, 224, 224, 0.45) 0px 1px 0px 0px;
+}
+
+.switch input[type=checkbox]:checked + .slider::after {
+  left: 24px;
+}
+
+.switch input[type=checkbox] {
+  display: none;
+}
+
 .my-modal {
   width: 100%;
   height: 100%;
@@ -131,149 +272,8 @@
     width: 80% !important;
   }
 }
-header {
-  padding: 2%;
-  background-color: rgba(255, 255, 255, 0.7);
-  box-shadow: 0px 0px 5px #1F3B58;
-  backdrop-filter: blur(6.2px);
-  -webkit-backdrop-filter: blur(3px);
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-}
-header nav {
-  visibility: hidden;
-}
-@media screen and (max-width: 768px) {
-  header nav {
-    visibility: visible;
-  }
-  header nav a {
-    text-decoration: none;
-  }
-}
-
-.darkMode {
-  color: white;
-}
-.darkMode a {
-  color: white;
-}
-
-main {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  z-index: 0;
-  background-color: white;
-}
-@media screen and (max-width: 768px) {
-  main {
-    flex-direction: column;
-  }
-}
-main section {
-  width: 30%;
-  margin: 2%;
-  padding: 1%;
-  background-color: rgb(255, 255, 255);
-  border-radius: 10px;
-  box-shadow: 0px 0px 5px #1F3B58;
-  backdrop-filter: blur(6.2px);
-  -webkit-backdrop-filter: blur(3px);
-  text-align: center;
-}
-@media screen and (max-width: 768px) {
-  main section {
-    width: 95%;
-  }
-}
-main .mode {
-  position: fixed;
-  bottom: 0px;
-  right: 0px;
-}
-
-.darkMode section {
-  background-color: rgb(139, 0, 0);
-}
-
-body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-header {
-  color: rgb(0, 0, 120);
-}
-
-main {
-  color: rgb(0, 0, 120);
-}
-
-button {
-  border: none;
-  border-radius: 0.75em;
-  box-sizing: border-box;
-  border: 2px solid #474747;
-  padding: 4px;
-}
-
-.add:hover {
-  background-color: rgb(1, 170, 1);
-  color: rgb(255, 255, 255);
-  border-color: rgb(1, 170, 1);
-}
-
-.btnDelete:hover {
-  background-color: rgb(255, 0, 0);
-  color: rgb(255, 255, 255);
-  border-color: rgb(255, 0, 0);
-}
-
-.slider {
-  background-color: rgba(255, 255, 255, 0.168627451);
-  border-radius: 100px;
-  padding: 1px;
-  margin: 10px;
-  cursor: pointer;
-  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  align-items: center;
-  position: relative;
-  display: block;
-  width: 51px;
-  height: 29px;
-  box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 5px inset, rgba(0, 0, 0, 0.21) 0px 0px 0px 24px inset, #22cc3f 0px 0px 0px 0px inset, rgba(224, 224, 224, 0.45) 0px 1px 0px 0px;
-}
-
-.slider::after {
-  content: "";
-  display: flex;
-  top: 2.3px;
-  left: 2px;
-  width: 26px;
-  height: 26px;
-  background-color: #e3e3e3;
-  border-radius: 200px;
-  position: absolute;
-  box-shadow: transparent 0px 0px 0px 2px, rgba(0, 0, 0, 0.3) 0px 6px 6px;
-  transition: left 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s, background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  will-change: left, background-color;
-}
-
-.switch input[type=checkbox]:checked + .slider {
-  box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 5px inset, #22cc3f 0px 0px 0px 2px inset, #22cc3f 0px 0px 0px 24px inset, rgba(224, 224, 224, 0.45) 0px 1px 0px 0px;
-}
-
-.switch input[type=checkbox]:checked + .slider::after {
-  left: 24px;
-}
-
-.switch input[type=checkbox] {
-  display: none;
-}
-
 .task {
-  margin: 0.75em 0;
+  margin: 0.3em 0;
   border: 1px solid rgb(60, 60, 79);
   border-radius: 10px;
   text-align: left;
@@ -281,14 +281,20 @@ button {
   flex-direction: column;
   padding: 1vh;
   gap: 5px;
+  cursor: grab;
 }
 .task img {
   height: 25px;
   width: 25px;
+  padding-right: 5px;
 }
 .task > * {
   display: flex;
   align-items: center;
+}
+
+.task:hover {
+  border: 2px solid rgb(164, 164, 164);
 }
 
 .name_block {
@@ -309,6 +315,7 @@ button {
 
 .controls {
   align-self: flex-end;
+  cursor: pointer;
 }
 .controls img {
   padding: 0 5px;
@@ -317,10 +324,14 @@ button {
   transform: scale(110%);
 }
 
+.important {
+  color: red;
+}
+
 body {
   background-color: white;
 }
 
 .darkMode {
-  background-color: rgba(0, 0, 0, 0.878);
+  background-color: rgba(45, 45, 45, 0.878);
 }/*# sourceMappingURL=style.css.map */

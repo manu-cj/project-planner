@@ -1,23 +1,18 @@
 @import "reset";
-@import "modal";
-
 @import "mixins";
 
-@import "header";
 @import "main";
-
 @import "fonts";
-
+@import "header";
 @import "button";
+@import "modal";
 
 @import "tasks";
 
 body {
     background-color: white;
+
 }
 .darkMode {
-    background-color: rgba(0, 0, 0, 0.878);
+    background-color: rgba(45, 45, 45, 0.878);
 }
-
-
-    
