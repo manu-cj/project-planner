@@ -99,7 +99,7 @@
   background-color: tomato;
 }
 .my-modal .modal-section .form-delete input[name=not-delete]:hover {
-  background-color: rgb(253, 80, 50);
+  background-color: rgb(214, 45, 15);
 }
 
 @media only screen and (max-width: 767px) {
