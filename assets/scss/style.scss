@@ -1,11 +1,19 @@
 @import "reset";
-<<<<<<< HEAD
-@import "main";
 @import "modal";
-=======
 @import "mixins";
 @import "fonts";
 @import "header";
 @import "main";
 @import "button";
->>>>>>> Adrien
+
+
+body {
+    background-color: white;
+   
+}
+.darkMode {
+    background-color: rgba(0, 0, 0, 0.878);
+}
+
+
+    
