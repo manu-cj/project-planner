@@ -48,6 +48,26 @@ const modal = (actionType, submitValue, index) => {
   submitInput.id = actionType;
   submitInput.value = submitValue;
 
+
+  // Créer une fonction pour générer les options
+  const createStatusOption = (value, labelText) => {
+    let label = document.createElement("label");
+    let radioInput = document.createElement("input");
+
+    label.textContent = labelText;
+    radioInput.type = "radio";
+    radioInput.name = "status";
+    radioInput.value = value;
+
+    statusOptions.appendChild(radioInput);
+    statusOptions.appendChild(label);
+  };
+
+  // Générer les options pour chaque état
+  createStatusOption("todo", "To Do");
+  createStatusOption("doing", "Doing");
+  createStatusOption("done", "Done");
+
   //Ajout du text dans le label
   taskTitleLabel.textContent = "Task name : ";
   taskDescriptionLabel.textContent = "Task description : ";
@@ -84,49 +104,7 @@ const modal = (actionType, submitValue, index) => {
     });
   }
 
-  //Modification de la tache
-  if (actionType === "update") {
-    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    let idTask = -1;
-    console.log(index);
-    for (let i = 0; i < tasks.length; i++) {
-      if (tasks[i].id === index) {
-        idTask = i;
-        break;
-      }
-    }
-    //Récupération des données liées à la tâche
-    if (idTask !== -1) {
-      taskTitleInput.value = tasks[idTask].name;
-      taskDescriptionTextarea.value = tasks[idTask].description;
-      taskDateInput.value = tasks[idTask].deadline;
-    } else {
-      console.log("Une erreur est survenue !");
-    }
-
-    /*
-    Code pour update la tâche
-    */
-  }
-
-  // Créer une fonction pour générer les options
-  const createStatusOption = (value, labelText) => {
-    let label = document.createElement("label");
-    let radioInput = document.createElement("input");
-
-    label.textContent = labelText;
-    radioInput.type = "radio";
-    radioInput.name = "status";
-    radioInput.value = value;
-
-    statusOptions.appendChild(radioInput);
-    statusOptions.appendChild(label);
-  };
-
-  // Générer les options pour chaque état
-  createStatusOption("todo", "To Do");
-  createStatusOption("doing", "Doing");
-  createStatusOption("done", "Done");
+ 
 
   //Implèmentation des élèments dans le document
   body.appendChild(myModal);
@@ -141,10 +119,60 @@ const modal = (actionType, submitValue, index) => {
   form.appendChild(taskDescriptionTextarea);
   form.appendChild(taskDateLabel);
   form.appendChild(taskDateInput);
-  if (actionType === "update") {
-    form.appendChild(statusOptions);
-  }
+  form.appendChild(statusOptions);
+
   form.appendChild(submitInput);
+
+  let radioInputs = document.querySelectorAll('input[name="status"]');
+  let radioValue = "";
+
+  radioInputs.forEach((radio) => {
+    radioInputs[0].checked = true;
+    radio.addEventListener("change", () => {
+      console.log(radio.value);
+      radioValue = radio.value;
+    });
+  });
+
+
+
+ //Modification de la tache
+ if (actionType === "update") {
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    let idTask = -1;
+    for (let i = 0; i < tasks.length; i++) {
+      if (tasks[i].id === index) {
+        idTask = i;
+        break;
+      }
+    }
+    //Récupération des données liées à la tâche
+    if (idTask !== -1) {
+      taskTitleInput.value = tasks[idTask].name;
+      taskDescriptionTextarea.value = tasks[idTask].description;
+      taskDateInput.value = tasks[idTask].deadline;
+      if (tasks[idTask].status === "doing") {
+        radioInputs[1].checked = true;
+      }
+      if (tasks[idTask].status === "done") {
+        radioInputs[2].checked = true;
+      }
+      
+
+      //Ajout de la tâche
+      submitInput.addEventListener("click", () => {
+        tasks[idTask].name = taskTitleInput.value;
+        tasks[idTask].description = taskDescriptionTextarea.value;
+        tasks[idTask].deadline = taskDateInput.value;
+        tasks[idTask].status = radioValue;
+
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+      });
+    } else {
+      console.log("Une erreur est survenue !");
+    }
+  }
+
 
   //Fermeture de la modal et reset
   closeIcon.addEventListener("click", () => {
