@@ -27,6 +27,7 @@ const modal = (actionType, submitValue, index) => {
 
   form.classList.add("form-task");
   statusOptions.classList.add("change-status");
+  taskTitleInput.maxLength = "20";
   taskTitleLabel.htmlFor = "task-title";
   taskTitleInput.type = "text";
   taskTitleInput.name = "task-title";
@@ -35,6 +36,7 @@ const modal = (actionType, submitValue, index) => {
   taskDescriptionLabel.htmlFor = "task-description";
   taskDescriptionTextarea.name = "task-description";
   taskDescriptionTextarea.id = "task-description";
+  taskDescriptionTextarea.maxLength = "100"
   taskDescriptionTextarea.cols = "20";
   taskDescriptionTextarea.rows = "10";
 
@@ -42,6 +44,10 @@ const modal = (actionType, submitValue, index) => {
   taskDateInput.type = "date";
   taskDateInput.name = "task-date";
   taskDateInput.id = "task-date";
+  // Adds today's date as today's min value
+  let today = new Date().toISOString().split("T")[0];
+  taskDateInput.min = today;
+
 
   submitInput.type = "submit";
   submitInput.name = actionType;
@@ -74,7 +80,7 @@ const modal = (actionType, submitValue, index) => {
   taskDateLabel.textContent = "Done for : ";
 
   //Ajout de placeholder
-  taskTitleInput.placeholder = "A name for you'r task";
+  taskTitleInput.placeholder = "A name for your task";
   taskDescriptionTextarea.placeholder = "What is this task ?";
 
   //fonction pour génèrer un token
@@ -104,7 +110,6 @@ const modal = (actionType, submitValue, index) => {
     });
   }
 
- 
 
   //Implèmentation des élèments dans le document
   body.appendChild(myModal);
@@ -139,7 +144,7 @@ const modal = (actionType, submitValue, index) => {
 
 
  //Modification de la tache
- if (actionType === "update") {
+if (actionType === "update") {
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     let idTask = -1;
     for (let i = 0; i < tasks.length; i++) {

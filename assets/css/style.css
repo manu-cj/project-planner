@@ -294,7 +294,8 @@ button {
 }
 
 .task:hover {
-  border: 2px solid rgb(164, 164, 164);
+  transform: scale(101%);
+  border: 2px solid rgb(60, 60, 79);
 }
 
 .name_block {
