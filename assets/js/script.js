@@ -21,6 +21,7 @@ l'index, à appeler lors de l'advEventListenner de l'ajout de tache et update*/
         modal('todo', 'add-task', i);
     })
  }
+ 
 
  const edit_task = document.querySelectorAll('.edit_task');
  for (let i = 0; i < edit_task.length; i++) {
