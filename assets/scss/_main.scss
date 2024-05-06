@@ -2,6 +2,7 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    z-index: 0;
     background-color: white;
     @include mobile {
             flex-direction: column;
