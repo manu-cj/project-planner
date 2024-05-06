@@ -2,6 +2,7 @@
 import { Task } from "./components/Task.js";
 import { getTasksFromStorage } from "./components/getTasks.js";
 import { displayTasks } from "./components/showTasks.js";
+import { darkMode, clear } from './components/darkMode.js';
 
 
 import {modal} from './components/modal.js';
@@ -10,6 +11,7 @@ import {deleteTaskModal} from './components/delete-task-modal.js';
 
 
 displayTasks();
+
 
 /*Donner lui le type de tache, le texte du bouton submit et 
 l'index, à appeler lors de l'advEventListenner de l'ajout de tache et update*/
@@ -46,3 +48,11 @@ for (let i = 0; i < delete_task.length; i++) {
 }
 
 
+let buttonDarkMode = document.querySelector('.checkbox');
+    buttonDarkMode.addEventListener('change', () => {
+        if (buttonDarkMode.checked) {
+            darkMode();
+        } else {
+            clear();
+        }
+    })

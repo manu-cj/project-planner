@@ -11,6 +11,17 @@ header {
         visibility: hidden;
         @include mobile {
             visibility: visible;
+            a {
+                text-decoration: none;
+            }
+            
         }
+    }
+}
+
+.darkMode {
+    color: white;
+    a {
+        color: white;
     }
 }
