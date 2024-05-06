@@ -1,3 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  min-height: 80vh;
+  padding: 3vh 2vh;
+  box-sizing: border-box;
+  justify-content: space-between;
+  z-index: 0;
+  background-color: #e4e5f1;
+}
+@media screen and (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+}
+main section {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  margin: 1.5em;
+  background-color: #f0f0f5;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px #1F3B58;
+  backdrop-filter: blur(6.2px);
+  -webkit-backdrop-filter: blur(3px);
+  text-align: center;
+}
+main section h2 {
+  padding: 1vh 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-weight: 400;
+  background-color: #484b6a;
+  color: white;
+  margin-bottom: 0.5em;
+}
+@media screen and (max-width: 768px) {
+  main section {
+    width: 95%;
+  }
+}
+main .mode {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+}
+
+.tasks-container {
+  height: 80%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.darkMode section {
+  background-color: #4D7F9D;
+}
+
+body {
+  font-family: "roboto", sans-serif;
+}
+
+header {
+  color: #e4e5f1;
+}
+
+main {
+  color: #3C5064;
+}
+
+header {
+  display: flex;
+  height: 10vh;
+  background-color: #484b6a;
+  box-shadow: 0px 0px 5px #484b6a;
+  backdrop-filter: blur(6.2px);
+  -webkit-backdrop-filter: blur(3px);
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+header h1 {
+  font-weight: 400;
+}
+header nav {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  header nav {
+    display: block;
+  }
+  header nav a {
+    text-decoration: none;
+  }
+}
+
+.darkMode {
+  color: #E8EDEE;
+}
+.darkMode a {
+  color: #E8EDEE;
+}
+
+button {
+  align-self: flex-end;
+  margin-right: 1em;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: ease-in 0.2s;
+  cursor: pointer;
+  padding: 5px 8px;
+}
+
+.add:hover {
+  background-color: rgb(1, 170, 1);
+  color: rgb(255, 255, 255);
+  border-color: rgb(1, 170, 1);
+}
+
+.btnDelete:hover {
+  background-color: rgb(255, 0, 0);
+  color: rgb(255, 255, 255);
+  border-color: rgb(255, 0, 0);
+}
+
+.slider {
+  background-color: rgba(255, 255, 255, 0.7490196078);
+  border-radius: 100px;
+  padding: 1px;
+  margin: 10px;
+  cursor: pointer;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  align-items: center;
+  position: relative;
+  display: block;
+  width: 51px;
+  height: 29px;
+  box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 5px inset, rgba(0, 0, 0, 0.21) 0px 0px 0px 24px inset, #22cc3f 0px 0px 0px 0px inset, rgba(224, 224, 224, 0.45) 0px 1px 0px 0px;
+}
+
+.slider::after {
+  content: "";
+  display: flex;
+  top: 2.3px;
+  left: 2px;
+  width: 26px;
+  height: 26px;
+  background-color: #e3e3e3;
+  border-radius: 200px;
+  position: absolute;
+  box-shadow: transparent 0px 0px 0px 2px, rgba(0, 0, 0, 0.3) 0px 6px 6px;
+  transition: left 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s, background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  will-change: left, background-color;
+}
+
+.switch input[type=checkbox]:checked + .slider {
+  box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 5px inset, #22cc3f 0px 0px 0px 2px inset, #22cc3f 0px 0px 0px 24px inset, rgba(224, 224, 224, 0.45) 0px 1px 0px 0px;
+}
+
+.switch input[type=checkbox]:checked + .slider::after {
+  left: 24px;
+}
+
+.switch input[type=checkbox] {
+  display: none;
+}
+
 .my-modal {
   width: 100%;
   height: 100%;
@@ -7,7 +184,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 1;
+  z-index: 5;
   overflow: auto;
   background-color: rgba(56, 55, 55, 0.475);
 }
@@ -41,9 +218,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-weight: bold;
 }
 .my-modal .modal-section .form-task input {
-  width: 50%;
+  width: 80%;
   height: 30px;
   margin-top: 5px;
   margin-bottom: 10px;
@@ -59,6 +237,25 @@
   margin-top: 5px;
   margin-bottom: 10px;
   padding: 5px;
+  border-radius: 5px;
+  border: 2px black solid;
+}
+.my-modal .modal-section .form-task .change-status {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 12px;
+}
+.my-modal .modal-section .form-task .change-status input[type=radio] {
+  width: 20px;
+  margin: 5px;
+}
+.my-modal .modal-section .form-task .change-status label {
+  display: block;
+  width: 25%;
+  margin-right: 10px;
 }
 .my-modal .modal-section .form-task input[type=submit] {
   width: 30%;
@@ -66,4 +263,116 @@
 }
 .my-modal .modal-section .form-task input[type=submit]:hover {
   background-color: rgb(0, 191, 102);
+}
+.my-modal .modal-section .form-delete {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-align: center;
+}
+.my-modal .modal-section .form-delete label {
+  width: 100%;
+}
+.my-modal .modal-section .form-delete input[type=submit] {
+  padding: 10px;
+  font-weight: bold;
+  width: 100px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.my-modal .modal-section .form-delete input[name=delete-all-task] {
+  background-color: rgb(0, 191, 102);
+}
+.my-modal .modal-section .form-delete input[name=delete-all-task]:hover {
+  background-color: rgb(3, 148, 80);
+}
+.my-modal .modal-section .form-delete input[name=not-delete] {
+  background-color: tomato;
+}
+.my-modal .modal-section .form-delete input[name=not-delete]:hover {
+  background-color: rgb(214, 45, 15);
+}
+
+@media only screen and (max-width: 767px) {
+  .modal-section {
+    width: 80% !important;
+  }
+}
+.task {
+  margin: 0.6em 1em;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 10px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 1vh;
+  overflow: hidden;
+  cursor: grab;
+  word-wrap: wrap;
+  background-color: white;
+}
+.task img {
+  height: 25px;
+  width: 25px;
+  padding-right: 5px;
+}
+.task > * {
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  padding: 0 0.4rem;
+  word-wrap: wrap;
+}
+
+.task:hover {
+  transition: ease 0.6s;
+  box-shadow: rgba(54, 54, 54, 0.2) 0px 1px 2px, rgba(51, 51, 51, 0.2) 0px 0px 0px 2px;
+}
+
+.name_block {
+  display: flex;
+  justify-content: space-between;
+  text-align: right;
+}
+@media screen and (max-width: 768px) {
+  .name_block {
+    flex-direction: column;
+    align-content: left;
+  }
+  .name_block > h3 {
+    order: 2;
+    align-self: flex-start;
+  }
+}
+
+.controls {
+  align-self: flex-end;
+  cursor: pointer;
+}
+.controls img {
+  width: 18px;
+  height: 18px;
+  padding-left: 0.8rem;
+}
+.controls img:hover {
+  transition: ease 0.7s;
+  transform: scale(110%);
+}
+
+.important {
+  color: red;
+}
+
+body {
+  background-color: #484b6a;
+}
+
+.darkMode {
+  background-color: #3C5064;
 }/*# sourceMappingURL=style.css.map */

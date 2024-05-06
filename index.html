@@ -6,9 +6,52 @@
     <script type="module" defer src="./assets/js/script.js"></script>
     <script defer src="https://kit.fontawesome.com/d8438e7f2f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>Document</title>
+    <link rel="shortcut icon" href="assets/images/favicon1.svg" type="image/x-icon">
+    <title>Project Planner</title>
 </head>
 <body>
-    
+    <header>
+        <h1>Project Planner</h1>
+        <nav>
+            <a href="#toDo">ToDo</a>
+            <a href="#doing">Doing</a>
+            <a href="#done">Done</a>
+        </nav>  
+    </header>
+    <main>
+        <section id="toDo">
+            <h2>To Do</h2>
+            <div class="tasks-container"></div>
+            <div class="buttons">
+                <button class="add">Add</button>
+                <button class="btnDelete">Delete All</button>
+            </div>
+        </section>
+        <section id="doing">
+            <h2>Doing</h2>
+            <div class="tasks-container"></div>
+            <div class="buttons">
+                <button class="add">Add</button>
+                <button class="btnDelete">Delete All</button>
+            </div>
+        </section>
+        <section id="done">
+            <h2>Done</h2>
+            <div class="tasks-container"></div>
+            <div class="buttons">
+                <button class="add">Add</button>
+                <button class="btnDelete">Delete All</button>
+            </div>
+        </section>
+        <div class="mode">
+            <label class="switch">
+                <input type="checkbox" class="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </main>
+    <footer>
+        
+    </footer>
 </body>
 </html>

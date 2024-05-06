@@ -1,3 +1,19 @@
 @import "reset";
+@import "variables";
+@import "mixins";
+
 @import "main";
+@import "fonts";
+@import "header";
+@import "button";
 @import "modal";
+
+@import "tasks";
+
+body {
+    background-color:#484b6a;
+
+}
+.darkMode {
+    background-color: $dark-blue;
+}
