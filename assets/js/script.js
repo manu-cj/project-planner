@@ -1,8 +1,9 @@
 
 import { Task } from "./components/Task.js";
-import { getTasksFromStorage } from "./components/tasks.js";
+import { getTasksFromStorage } from "./components/getTasks.js";
+import { displayTasks } from "./components/showTasks.js";
 
-import modal from './component/modal.js';
+import { modal } from './component/modal.js';
 
 /*Donner lui le type de tache, le texte du bouton submit et 
 l'index, à appeler lors de l'advEventListenner de l'ajout de tache et update*/
@@ -11,3 +12,4 @@ l'index, à appeler lors de l'advEventListenner de l'ajout de tache et update*/
 //         modal('todo', 'add-task', 1);
 //     })git
 
+displayTasks();
