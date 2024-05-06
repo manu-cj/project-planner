@@ -7,14 +7,21 @@
     flex-direction: column;
     padding: 1vh;
     gap: 5px;
+    cursor:grab;
     img {
         height: 25px;
         width: 25px;
+        padding-right: 5px;
     }
     > * {
         display: flex;
         align-items: center;
     }
+}
+
+.task:hover {
+    // transform: scale(101%);
+    border: 2px solid rgb(60, 60, 79);
 }
 
 .name_block {
@@ -33,6 +40,7 @@
 
 .controls {
     align-self: flex-end;
+    cursor: pointer;
     img {
         padding: 0 5px;
     }
