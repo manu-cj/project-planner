@@ -8,6 +8,7 @@ const displayTasks = () => {
     for (let task of tasks) {
         const taskCard = document.createElement("div");
         taskCard.classList.add("task");
+        taskCard.id = task.id;
         taskCard.innerHTML = 
         `
             <div class="name_block"><h3>${task.name}</h3><span class="controls"><img title="Edit Task" class="edit_task" id="edit_${task.id}" src="assets/images/edit.svg"><img title="Delete Task" class="delete_task" id="delete_${task.id}" src="assets/images/delete.svg"</span>
