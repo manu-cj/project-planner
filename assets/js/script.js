@@ -18,16 +18,16 @@ l'index, à appeler lors de l'advEventListenner de l'ajout de tache et update*/
  const addTask = document.querySelectorAll('.add');
  for (let i = 0; i < addTask.length; i++) {
     addTask[i].addEventListener('click', () => {
-        modal('todo', 'add-task', i);
+        modal('add', 'add-task', i);
     })
  }
  
-
+ const task = document.querySelectorAll('.task');
  const edit_task = document.querySelectorAll('.edit_task');
  for (let i = 0; i < edit_task.length; i++) {
     edit_task[i].addEventListener('click', () => {
-        console.log('hi');
-        modal('update', 'update-task', i);
+        console.log(task[i].id);
+        modal('update', 'update-task', task[i].id);
     })
  }
 
