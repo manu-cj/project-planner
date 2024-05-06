@@ -35,13 +35,16 @@ const displayTasks = () => {
         } 
 
         if (task.status === "done") {
-            doneTree.insertBefore(taskCard, doneTree.querySelector(".add"));
+            const doneContainer = doneTree.querySelector(".tasks-container");
+            doneContainer.appendChild(taskCard);
         }
         else if (task.status === "doing") {
-            doingTree.insertBefore(taskCard, doingTree.querySelector(".add"));
+            const doingContainer = doingTree.querySelector(".tasks-container");
+            doingContainer.appendChild(taskCard);
         }
         else {
-            toDoTree.insertBefore(taskCard, toDoTree.querySelector(".add"));
+            const toDoContainer = toDoTree.querySelector(".tasks-container");
+            toDoContainer.appendChild(taskCard);
         }
     }
 }

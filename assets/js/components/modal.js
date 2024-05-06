@@ -36,7 +36,7 @@ const modal = (actionType, submitValue, index) => {
   taskDescriptionLabel.htmlFor = "task-description";
   taskDescriptionTextarea.name = "task-description";
   taskDescriptionTextarea.id = "task-description";
-  taskDescriptionTextarea.maxLength = "100"
+  taskDescriptionTextarea.maxLength = "200"
   taskDescriptionTextarea.cols = "20";
   taskDescriptionTextarea.rows = "10";
 
