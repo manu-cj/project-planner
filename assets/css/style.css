@@ -272,11 +272,26 @@ button {
   align-items: center;
 }
 
-.controls {
-  justify-content: flex-end;
+.name_block {
+  display: flex;
+  justify-content: space-between;
   text-align: right;
 }
-.controls > * {
+@media screen and (max-width: 768px) {
+  .name_block {
+    flex-direction: column;
+    align-content: left;
+  }
+  .name_block > h3 {
+    order: 2;
+    align-self: flex-start;
+  }
+}
+
+.controls {
+  align-self: flex-end;
+}
+.controls img {
   padding: 0 5px;
 }
 .controls img:hover {
