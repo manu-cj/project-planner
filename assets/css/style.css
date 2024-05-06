@@ -1,0 +1,69 @@
+.my-modal {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  overflow: auto;
+  background-color: rgba(56, 55, 55, 0.475);
+}
+.my-modal .modal-section {
+  width: 33%;
+  background-color: rgb(250, 250, 250);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+.my-modal .modal-section .close-modal {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  padding-right: 15px;
+}
+.my-modal .modal-section .close-modal .fa-times {
+  font-size: 25px;
+  color: rgb(108, 105, 105);
+}
+.my-modal .modal-section .close-modal .fa-times:hover {
+  color: tomato;
+  cursor: pointer;
+}
+.my-modal .modal-section .form-task {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.my-modal .modal-section .form-task input {
+  width: 50%;
+  height: 30px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.my-modal .modal-section .form-task textarea {
+  width: 80%;
+  min-width: 50%;
+  max-width: 80%;
+  min-height: 100px;
+  max-height: 250px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.my-modal .modal-section .form-task input[type=submit] {
+  width: 30%;
+  cursor: pointer;
+}
+.my-modal .modal-section .form-task input[type=submit]:hover {
+  background-color: rgb(0, 191, 102);
+}/*# sourceMappingURL=style.css.map */
