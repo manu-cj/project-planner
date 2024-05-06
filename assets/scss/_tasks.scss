@@ -1,5 +1,29 @@
 .task {
-    border: 1px solid red;
+    margin : .75em 0;
+    border: 1px solid rgb(60, 60, 79);
+    border-radius: 10px;
+    text-align: left;
     display: flex;
     flex-direction: column;
+    padding: 1vh;
+    gap: 5px;
+    img {
+        height: 25px;
+        width: 25px;
+    }
+    > * {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.controls {
+    justify-content: flex-end;
+    & > * {
+        padding: 0 5px;
+    }
+    img:hover {
+        transform: scale(110%);
+    }
+    text-align: right;
 }
