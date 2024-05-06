@@ -21,7 +21,7 @@
 
 .task:hover {
     // transform: scale(101%);
-    border: 2px solid rgb(60, 60, 79);
+    border: 2px solid rgb(164, 164, 164);
 }
 
 .name_block {
@@ -47,4 +47,8 @@
     img:hover {
         transform: scale(110%);
     }
+}
+
+.important {
+    color: red;
 }
