@@ -1,1 +1,5 @@
-/*# sourceMappingURL=style.css.map */
+.task {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=style.css.map */
