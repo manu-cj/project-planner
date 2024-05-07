@@ -49,16 +49,14 @@ const modal = (actionType, submitValue, index) => {
   taskDateInput.type = "date";
   taskDateInput.name = "task-date";
   taskDateInput.id = "task-date";
-  // Adds today's date as today's min value
+  // Adds today's date as min value for input
   let today = new Date().toISOString().split("T")[0];
   taskDateInput.min = today;
-
 
   submitInput.type = "submit";
   submitInput.name = actionType;
   submitInput.id = actionType;
   submitInput.value = submitValue;
-
 
   // Créer une fonction pour générer les options
   const createStatusOption = (value, labelText) => {

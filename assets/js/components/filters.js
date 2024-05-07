@@ -1,6 +1,7 @@
 import { displayTasks } from "./displayTasks.js";
 import { getTasksFromStorage } from "./getTasks.js";
 
+// dismisses the filter menu when clicking outside the filter menu.
 const clickOut = (e) => {
     const filterMenu = document.querySelector(".filter-menu");
     const filterButton = document.querySelector("#filter-toggle");
@@ -17,6 +18,10 @@ const clearFilters = () => {
 
 const applyFilters = () => {
     const tasks = getTasksFromStorage();
+
+    const toDoTree = document.querySelector("#toDo");
+    const doingTree = document.querySelector("#doing");
+    const doneTree = document.querySelector("#done");
     // Stores status of each filter into variables.
     const keyword = document.querySelector('#searchbar').value.toLowerCase();
     const todoChecked = document.querySelector('#todoBox').checked;
@@ -25,13 +30,22 @@ const applyFilters = () => {
     const overdueChecked = document.querySelector('#overdueBox').checked;
     const endOfDayChecked = document.querySelector('#endOfDayBox').checked;
     const dueNextDaysChecked = document.querySelector('#dueNextDaysBox').checked;
+
+    // Set display for containers based on allChecked
+    if (!todoChecked) {
+        toDoTree.style.display = "none";
+    }
+    if (!doingChecked) {
+        doingTree.style.display = "none";
+    }
+    if (!doneChecked) {
+        doneTree.style.display = "none";
+    }
+
     for (let task of tasks) {
         const taskCard = document.getElementById(task.id);
         const taskName = task.name.toLowerCase();
         const taskDescription = task.description.toLowerCase();
-        const isTodo = task.status === "todo";
-        const isDoing = task.status === "doing";
-        const isDone = task.status === "done";
         const now = new Date();
         const deadline = new Date(task.deadline);
         let delta = deadline - now;
@@ -40,8 +54,6 @@ const applyFilters = () => {
         const shouldDisplay = (
             (keyword === '' || taskName.includes(keyword) || taskDescription.includes(keyword)) 
             && 
-            ((isTodo && todoChecked) || (isDoing && doingChecked) || (isDone && doneChecked))
-            &&
             ((delta === 1 && endOfDayChecked) || (delta > 1 && dueNextDaysChecked) ||  (delta < 0 && overdueChecked))
         );
 
@@ -51,12 +63,21 @@ const applyFilters = () => {
             taskCard.style.display = 'none';
         }
     }
-    updateFilters();
+    // updateFilters();
 };
 
 const addFilterContent = () => {
     const content = document.createElement("div");
     content.classList.add("filter-content");
+    // let filters = JSON.parse(localStorage.getItem('taskFilters'));
+    // console.log(filters.todo);
+    // let checked = "";
+    // if (!filters.todo ) {
+    //     checked = "";
+    // }
+    // else {
+    //     checked = "checked";
+    // }
     content.innerHTML = `
     <h3>Filter Tasks</h3>
     <section class="filter">
