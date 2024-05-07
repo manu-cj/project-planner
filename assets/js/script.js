@@ -52,30 +52,46 @@ for (let i = 0; i < delete_task.length; i++) {
 
 let buttonDarkMode = document.querySelector('.checkbox');
 let isDarkModeEnabled = localStorage.getItem('darkModeEnabled');
-    if (isDarkModeEnabled === 'true') {
+if (isDarkModeEnabled === 'true') {
+    darkMode();
+    buttonDarkMode.checked = true;
+} else {
+    clear();
+    buttonDarkMode.checked = false;
+}
+
+buttonDarkMode.addEventListener('change', () => {
+    if (buttonDarkMode.checked) {
         darkMode();
-        buttonDarkMode.checked = true;
     } else {
         clear();
-        buttonDarkMode.checked = false;
     }
-    
-    buttonDarkMode.addEventListener('change', () => {
-        if (buttonDarkMode.checked) {
-            darkMode();
-        } else {
-            clear();
-        }
-    }) 
+}) 
 
-    // adds toggle on / off to filter icon
-    const filterButton = document.querySelector("#filter-toggle");
-    filterButton.addEventListener("click", () => {
-        toggleFilterMenu();
-    })
+// adds toggle on / off to filter icon
+const filterButton = document.querySelector("#filter-toggle");
+filterButton.addEventListener("click", () => {
+    toggleFilterMenu();
+})
 
-    // closes the filter menu in case of reload
-    window.addEventListener('load', () => {
-        const filterMenu = document.querySelector(".filter-menu");
-        filterMenu.style.display = "none";
-    });
+
+// sets filters by default if no preferences stored in local storage
+const filterPreferences = localStorage.getItem('taskFilters');
+if (!filterPreferences) {
+    const keyword = "";
+    const todo = true;
+    const doing = true;
+    const done = true;
+    const overdue = true;
+    const endOfDay = true;
+    const dueNextDays = true;
+    localStorage.setItem('taskFilters', JSON.stringify({
+        keyword,
+        todo,
+        doing,
+        done,
+        overdue,
+        endOfDay,
+        dueNextDays
+    }));    
+}

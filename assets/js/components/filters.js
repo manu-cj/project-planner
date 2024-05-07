@@ -1,7 +1,7 @@
 import { displayTasks } from "./displayTasks.js";
 import { getTasksFromStorage } from "./getTasks.js";
 
-// dismisses the filter menu when clicking outside the filter menu.
+// Dismisses the filter menu when clicking outside the filter menu.
 const clickOut = (e) => {
     const filterMenu = document.querySelector(".filter-menu");
     const filterButton = document.querySelector("#filter-toggle");
@@ -13,7 +13,7 @@ const clickOut = (e) => {
 }
 
 const clearFilters = () => {
-    console.log("clearing filters");
+    console.log("To do. Will do next");
 }
 
 const applyFilters = () => {
@@ -31,25 +31,10 @@ const applyFilters = () => {
     const endOfDayChecked = document.querySelector('#endOfDayBox').checked;
     const dueNextDaysChecked = document.querySelector('#dueNextDaysBox').checked;
 
-    // Set display for containers based on allChecked
-    if (!todoChecked) {
-        toDoTree.style.display = "none";
-    }
-    else {
-        toDoTree.style.display = "flex";
-    }
-    if (!doingChecked) {
-        doingTree.style.display = "none";
-    }
-    else {
-        doingTree.style.display = "flex";
-    }
-    if (!doneChecked) {
-        doneTree.style.display = "none";
-    }
-    else {
-        doneTree.style.display = "flex";
-    }
+    // Sets display for containers depending on selected filter
+    toDoTree.style.display = todoChecked ? "flex" : "none";
+    doingTree.style.display = doingChecked ? "flex" : "none";
+    doneTree.style.display = doneChecked ? "flex" : "none";
 
     for (let task of tasks) {
         const taskCard = document.getElementById(task.id);
@@ -60,6 +45,7 @@ const applyFilters = () => {
         let delta = deadline - now;
         delta = Math.ceil(delta / (1000 * 60 * 60 * 24));
 
+        // checks if the task should be displayed or not depending on filters.
         const shouldDisplay = (
             (keyword === '' || taskName.includes(keyword) || taskDescription.includes(keyword)) 
             && 
@@ -67,7 +53,7 @@ const applyFilters = () => {
         );
 
         if (shouldDisplay) {
-            taskCard.style.display = 'block';
+            taskCard.style.display = 'flex';
         } else {
             taskCard.style.display = 'none';
         }
@@ -78,7 +64,7 @@ const applyFilters = () => {
 const addFilterContent = () => {
     const content = document.createElement("div");
     content.classList.add("filter-content");
-    // let filters = JSON.parse(localStorage.getItem('taskFilters'));
+    let filters = JSON.parse(localStorage.getItem('taskFilters'));
     // console.log(filters.todo);
     // let checked = "";
     // if (!filters.todo ) {
