@@ -1,4 +1,3 @@
-
 import { Task } from "./components/Task.js";
 import { getTasksFromStorage } from "./components/getTasks.js";
 import { displayTasks } from "./components/displayTasks.js";
@@ -6,7 +5,7 @@ import { darkMode, clear } from './components/darkMode.js';
 
 import {modal} from './components/modal.js';
 import {deleteTaskModal} from './components/delete-task-modal.js';
-import { toggleFilterMenu } from './components/filters.js'
+import { toggleFilterMenu, updateFilters } from './components/filters.js'
 
 displayTasks();
 
@@ -23,7 +22,6 @@ const task = document.querySelectorAll('.task');
 const edit_task = document.querySelectorAll('.edit_task');
 for (let i = 0; i < edit_task.length; i++) {
     edit_task[i].addEventListener('click', () => {
-        console.log(task[i].id);
         modal('update', 'update-task', task[i].id);
     })
 }
