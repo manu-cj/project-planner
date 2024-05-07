@@ -6,6 +6,7 @@ import { darkMode, clear } from './components/darkMode.js';
 
 import {modal} from './components/modal.js';
 import {deleteTaskModal} from './components/delete-task-modal.js';
+import { toggleFilterMenu } from './components/filters.js'
 
 displayTasks();
 
@@ -69,3 +70,14 @@ let isDarkModeEnabled = localStorage.getItem('darkModeEnabled');
         }
     }) 
 
+    // adds toggle on / off to filter icon
+    const filterButton = document.querySelector("#filter-toggle");
+    filterButton.addEventListener("click", () => {
+        toggleFilterMenu();
+    })
+
+    // closes the filter menu in case of reload
+    window.addEventListener('load', () => {
+        const filterMenu = document.querySelector(".filter-menu");
+        filterMenu.style.display = "none";
+    });

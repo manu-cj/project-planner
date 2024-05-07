@@ -19,7 +19,7 @@ main {
     flex-direction: column;
   }
 }
-main section {
+main #toDo, main #done, main #doing {
   display: flex;
   flex-direction: column;
   width: 30%;
@@ -31,7 +31,7 @@ main section {
   -webkit-backdrop-filter: blur(3px);
   text-align: center;
 }
-main section h2 {
+main #toDo h2, main #done h2, main #doing h2 {
   padding: 1vh 0;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -41,7 +41,7 @@ main section h2 {
   margin-bottom: 0.5em;
 }
 @media screen and (max-width: 768px) {
-  main section {
+  main #toDo, main #done, main #doing {
     width: 95%;
   }
 }
@@ -78,18 +78,20 @@ main {
 
 header {
   display: flex;
+  position: relative;
   height: 10vh;
   background-color: #484b6a;
   box-shadow: 0px 0px 5px #484b6a;
   backdrop-filter: blur(6.2px);
   -webkit-backdrop-filter: blur(3px);
   align-items: center;
-  text-align: center;
   justify-content: center;
   box-sizing: border-box;
 }
 header h1 {
   font-weight: 400;
+  align-self: center;
+  justify-self: center;
 }
 header nav {
   display: none;
@@ -101,6 +103,24 @@ header nav {
   header nav a {
     text-decoration: none;
   }
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  position: absolute;
+  right: 3%;
+}
+@media screen and (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+  }
+}
+.filters img {
+  padding-left: 10px;
+  height: 30px;
+  width: 30px;
 }
 
 .darkMode {
@@ -303,6 +323,52 @@ button {
     width: 80% !important;
   }
 }
+.filter-menu {
+  display: flex;
+  position: absolute;
+  z-index: 5;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  height: 70vh;
+  width: 25vw;
+  padding: 2%;
+  top: 8.5vh;
+  right: 3%;
+}
+@media screen and (max-width: 768px) {
+  .filter-menu {
+    width: 50vw;
+  }
+}
+
+.filter-content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.filter-content > * {
+  margin: 1vh 0;
+}
+.filter-content h3 {
+  margin-bottom: 2vh;
+}
+.filter-content section {
+  display: flex;
+  flex-direction: column;
+}
+.filter-content section > * {
+  margin: 0.2em 0;
+}
+
+.filter input[type=text] {
+  padding: 5px;
+  width: 65%;
+}
+
+footer {
+  height: 4vh;
+}
+
 .task {
   margin: 0.6em 1em;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;

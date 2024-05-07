@@ -10,7 +10,7 @@ main {
     @include mobile {
         flex-direction: column;
     }
-    section {
+    #toDo, #done, #doing {
         display:flex;
         flex-direction: column;
         width: 30%;
