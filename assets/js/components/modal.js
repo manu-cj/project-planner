@@ -214,7 +214,6 @@ if (actionType === "update") {
     }
   }
 
-
   //Fermeture de la modal et reset
   closeIcon.addEventListener("click", () => {
     myModal.style.display = "none";

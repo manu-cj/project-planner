@@ -8,17 +8,33 @@ const clickOut = (e) => {
     if (!filterMenu.contains(e.target) && e.target !== filterButton) {
         filterMenu.style.display = "none";
         // Remove event listener after closing filter menu
-        document.removeEventListener("click", closeFilterMenuOutsideClick);
+        document.removeEventListener("click", clickOut);
     }
 }
 
 const clearFilters = () => {
-    console.log("To do. Will do next");
+    const keyword = document.getElementById('searchbar').value.toLowerCase();
+    const todo = document.getElementById('todoBox').checked;
+    const doing = document.getElementById('doingBox').checked;
+    const done = document.getElementById('doneBox').checked;
+    const overdue = document.getElementById('overdueBox').checked;
+    const endOfDay = document.getElementById('endOfDayBox').checked;
+    const dueNextDays = document.getElementById('dueNextDaysBox').checked;
+    localStorage.setItem('taskFilters', JSON.stringify({
+        keyword,
+        todo,
+        doing,
+        done,
+        overdue,
+        endOfDay,
+        dueNextDays
+    }));
+    updateFilters();
+    applyFilters();
 }
 
 const applyFilters = () => {
     const tasks = getTasksFromStorage();
-
     const toDoTree = document.querySelector("#toDo");
     const doingTree = document.querySelector("#doing");
     const doneTree = document.querySelector("#done");
@@ -31,7 +47,7 @@ const applyFilters = () => {
     const endOfDayChecked = document.querySelector('#endOfDayBox').checked;
     const dueNextDaysChecked = document.querySelector('#dueNextDaysBox').checked;
 
-    // Sets display for containers depending on selected filter
+    // Sets display for sections depending on selected filter
     toDoTree.style.display = todoChecked ? "flex" : "none";
     doingTree.style.display = doingChecked ? "flex" : "none";
     doneTree.style.display = doneChecked ? "flex" : "none";
@@ -51,33 +67,25 @@ const applyFilters = () => {
             && 
             ((delta === 1 && endOfDayChecked) || (delta > 1 && dueNextDaysChecked) ||  (delta < 0 && overdueChecked))
         );
-
         if (shouldDisplay) {
             taskCard.style.display = 'flex';
         } else {
             taskCard.style.display = 'none';
         }
     }
-    // updateFilters();
+    updateFilters();
 };
 
 const addFilterContent = () => {
     const content = document.createElement("div");
     content.classList.add("filter-content");
     let filters = JSON.parse(localStorage.getItem('taskFilters'));
-    // console.log(filters.todo);
-    // let checked = "";
-    // if (!filters.todo ) {
-    //     checked = "";
-    // }
-    // else {
-    //     checked = "checked";
-    // }
+    console.log(filters.keyword);
     content.innerHTML = `
     <h3>Filter Tasks</h3>
     <section class="filter">
         <h4>by keyword</h4>
-        <input id="searchbar" type="text" maxlength="10" placeholder="Search" autofocus>
+        <input id="searchbar" type="text" maxlength="10" autofocus placeholder="Search" value="${filters.keyword}">
     </section>
     <section class="filter">
         <h4>by status</h4>
@@ -116,6 +124,7 @@ const toggleFilterMenu = () => {
             applyFilters();
         });
         document.querySelector('#clearFilters').addEventListener("click", () => {
+            filterMenu.style.display = "none"
             clearFilters();
         });
     }
@@ -146,4 +155,4 @@ const updateFilters = () => {
     }));
 }
 
-export { toggleFilterMenu, updateFilters };
+export { toggleFilterMenu, updateFilters, clearFilters };
