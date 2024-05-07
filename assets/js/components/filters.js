@@ -35,11 +35,20 @@ const applyFilters = () => {
     if (!todoChecked) {
         toDoTree.style.display = "none";
     }
+    else {
+        toDoTree.style.display = "flex";
+    }
     if (!doingChecked) {
         doingTree.style.display = "none";
     }
+    else {
+        doingTree.style.display = "flex";
+    }
     if (!doneChecked) {
         doneTree.style.display = "none";
+    }
+    else {
+        doneTree.style.display = "flex";
     }
 
     for (let task of tasks) {
