@@ -3,6 +3,7 @@ import { Task } from "./Task.js";
 const modal = (actionType, submitValue, index) => {
   //Recherche des élèment du dom
   const body = document.querySelector("body");
+  let buttonDarkMode = document.querySelector('.checkbox');
 
   //Création des élèments
   let myModal = document.createElement("div");
@@ -54,7 +55,6 @@ const modal = (actionType, submitValue, index) => {
   submitInput.id = actionType;
   submitInput.value = submitValue;
 
-
   // Créer une fonction pour générer les options
   const createStatusOption = (value, labelText) => {
     let label = document.createElement("label");
@@ -97,19 +97,6 @@ const modal = (actionType, submitValue, index) => {
     return token;
   }
 
-  //Ajout de la tache en localStorage
-  if (actionType === "add") {
-    submitInput.addEventListener("click", () => {
-      const newTask = new Task(
-        taskTitleInput.value,
-        taskDateInput.value,
-        taskDescriptionTextarea.value,
-        generateToken(11),
-        "todo"
-      );
-    });
-  }
-
 
   //Implèmentation des élèments dans le document
   body.appendChild(myModal);
@@ -132,7 +119,9 @@ const modal = (actionType, submitValue, index) => {
   let radioValue = "";
 
   radioInputs.forEach((radio) => {
-    radioInputs[0].checked = true;
+    if (index > -1 && index < 3) {
+      radioInputs[index].checked = true;
+    }
     if (radio.checked === true) {
         radioValue = radio.value;
     }
@@ -141,7 +130,45 @@ const modal = (actionType, submitValue, index) => {
     });
   });
 
+  //Gestion des couleurs du darkMode de la fenêtre
+  if (buttonDarkMode.checked === true) {
+    modalSection.classList.add('darkMode');
+    modalSection.style.backgroundColor = '#242424';
+    taskTitleInput.style.backgroundColor = '#344955';
+    taskTitleInput.style.color = '#FFFFFF';
+    
+    taskTitleInput.style.placeholderColor = '#fff';
+    taskDescriptionTextarea.style.backgroundColor = '#344955';
+    taskDescriptionTextarea.style.color = '#FFFFFF';
+    
+    taskDescriptionTextarea.style.placeholderColor = '#CED4DA';
+    taskDateInput.style.backgroundColor = '#344955';
+    taskDateInput.style.color = '#FFFFFF'; 
 
+    submitInput.style.backgroundColor = '#344955';
+    submitInput.style.color = '#FFFFFF';
+
+    submitInput.addEventListener('mouseover', () => {
+      submitInput.style.backgroundColor = '#27AE60';
+    })
+    submitInput.addEventListener('mouseleave', () => {
+      submitInput.style.backgroundColor = '#344955';
+    })
+  }
+
+
+    //Ajout de la tache en localStorage
+    if (actionType === "add") {
+      submitInput.addEventListener("click", () => {
+        const newTask = new Task(
+          taskTitleInput.value,
+          taskDateInput.value,
+          taskDescriptionTextarea.value,
+          generateToken(11),
+          radioValue
+        );
+      });
+    }
 
  //Modification de la tache
 if (actionType === "update") {

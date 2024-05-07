@@ -1,6 +1,7 @@
 let body = document.querySelector('body');
 let header = document.querySelector('header');
 let main = document.querySelector('main');
+let modalSection = document.querySelector('.modal-section')
 
 
 export function darkMode () {
