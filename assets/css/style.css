@@ -13,6 +13,7 @@ main {
   justify-content: space-between;
   z-index: 0;
   background-color: #e4e5f1;
+  margin-top: 30px;
 }
 @media screen and (max-width: 768px) {
   main {
@@ -21,6 +22,9 @@ main {
 }
 main #toDo, main #done, main #doing {
   flex: 1;
+  display: flex;
+}
+main #toDo section, main #done section, main #doing section {
   display: flex;
   flex-direction: column;
   margin: 1.5em;
@@ -31,7 +35,7 @@ main #toDo, main #done, main #doing {
   -webkit-backdrop-filter: blur(3px);
   text-align: center;
 }
-main #toDo h2, main #done h2, main #doing h2 {
+main #toDo section h2, main #done section h2, main #doing section h2 {
   padding: 1vh 0;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -40,28 +44,53 @@ main #toDo h2, main #done h2, main #doing h2 {
   color: white;
   margin-bottom: 0.5em;
 }
+main #toDo section button, main #done section button, main #doing section button {
+  background-color: #484b6a;
+  color: white;
+  box-shadow: 0px 0px 2px #b4b4b5;
+}
 @media screen and (max-width: 768px) {
-  main #toDo, main #done, main #doing {
+  main #toDo section, main #done section, main #doing section {
     width: 95%;
   }
 }
-main .mode {
+main #toDo .mode, main #done .mode, main #doing .mode {
   position: fixed;
   bottom: 0px;
   right: 0px;
 }
-
-.tasks-container {
+main .tasks-container {
   height: 80%;
 }
-
-.buttons {
+main .buttons {
   display: flex;
   justify-content: flex-end;
 }
-
-.darkMode section {
-  background-color: #4D7F9D;
+main main.darkMode {
+  background-color: #13192d;
+}
+main main.darkMode section {
+  background-color: #102130;
+  box-shadow: 0px 0px 5px #b4b4b5;
+}
+main main.darkMode section .task {
+  background-color: #061424;
+  color: #e4e5f1;
+  box-shadow: rgba(184, 183, 183, 0.2) 0px 2px 8px 0px;
+}
+main main.darkMode section .task:hover {
+  box-shadow: rgba(255, 254, 254, 0.297) 0px 1px 2px, rgba(255, 254, 254, 0.297) 0px 0px 0px 2px;
+}
+main main.darkMode section h2 {
+  background-color: #061424;
+}
+main main.darkMode section p {
+  color: #e4e5f1;
+}
+main main.darkMode section button {
+  background-color: #061424;
+  color: white;
+  box-shadow: 0px 0px 2px #b4b4b5;
 }
 
 body {
@@ -123,10 +152,12 @@ header nav {
   width: 30px;
 }
 
-.darkMode {
+header.darkMode {
+  background-color: #061424;
+  box-shadow: 0px 0px 5px #b4b4b5;
   color: #E8EDEE;
 }
-.darkMode a {
+header.darkMode a {
   color: #E8EDEE;
 }
 
@@ -210,7 +241,7 @@ button {
 }
 .my-modal .modal-section {
   width: 33%;
-  background-color: rgb(250, 250, 250);
+  background-color: #f0f0f5;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -282,7 +313,7 @@ button {
   cursor: pointer;
 }
 .my-modal .modal-section .form-task input[type=submit]:hover {
-  background-color: rgb(0, 191, 102);
+  background-color: lightseagreen;
 }
 .my-modal .modal-section .form-delete {
   width: 100%;
@@ -305,17 +336,27 @@ button {
   cursor: pointer;
   border-radius: 5px;
 }
-.my-modal .modal-section .form-delete input[name=delete-all-task] {
-  background-color: rgb(0, 191, 102);
-}
 .my-modal .modal-section .form-delete input[name=delete-all-task]:hover {
-  background-color: rgb(3, 148, 80);
+  background-color: lightseagreen;
 }
-.my-modal .modal-section .form-delete input[name=not-delete] {
-  background-color: tomato;
+.my-modal .modal-section .form-delete input[name=delete-task]:hover {
+  background-color: lightseagreen;
 }
 .my-modal .modal-section .form-delete input[name=not-delete]:hover {
-  background-color: rgb(214, 45, 15);
+  background-color: tomato;
+}
+.my-modal .darkMode ::-moz-placeholder {
+  color: #CED4DA;
+}
+.my-modal .darkMode ::placeholder {
+  color: #CED4DA;
+}
+.my-modal .darkMode input[type=submit] {
+  width: 30%;
+  cursor: pointer;
+}
+.my-modal .darkMode input[type=submit]:hover {
+  background-color: lightseagreen;
 }
 
 @media only screen and (max-width: 767px) {
@@ -443,10 +484,19 @@ footer {
   color: red;
 }
 
+.task .darkMode {
+  background-color: #061424;
+  color: #e4e5f1;
+  box-shadow: rgba(184, 183, 183, 0.2) 0px 2px 8px 0px;
+}
+.task .darkMode:hover {
+  box-shadow: rgba(255, 254, 254, 0.297) 0px 1px 2px, rgba(255, 254, 254, 0.297) 0px 0px 0px 2px;
+}
+
 body {
-  background-color: #484b6a;
+  background-color: #e4e5f1;
 }
 
 .darkMode {
-  background-color: #3C5064;
+  background-color: #13192d;
 }/*# sourceMappingURL=style.css.map */
