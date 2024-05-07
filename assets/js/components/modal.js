@@ -101,20 +101,6 @@ const modal = (actionType, submitValue, index) => {
     return token;
   }
 
-  //Ajout de la tache en localStorage
-  if (actionType === "add") {
-    submitInput.addEventListener("click", () => {
-      const newTask = new Task(
-        sanitizeInput(taskTitleInput.value),
-        taskDateInput.value,
-        sanitizeInput(taskDescriptionTextarea.value),
-        generateToken(11),
-        "todo"
-      );
-    });
-  }
-
-
   //Implèmentation des élèments dans le document
   body.appendChild(myModal);
   myModal.appendChild(modalSection);
@@ -177,6 +163,7 @@ const modal = (actionType, submitValue, index) => {
     //Ajout de la tache en localStorage
     if (actionType === "add") {
       submitInput.addEventListener("click", () => {
+        console.log(radioValue)
         const newTask = new Task(
           taskTitleInput.value,
           taskDateInput.value,
@@ -214,6 +201,7 @@ if (actionType === "update") {
 
       //Ajout de la tâche
       submitInput.addEventListener("click", () => {
+        console.log('1235');
         tasks[idTask].name = sanitizeInput(taskTitleInput.value);
         tasks[idTask].description = sanitizeInput(taskDescriptionTextarea.value);
         tasks[idTask].deadline = taskDateInput.value;

@@ -1,3 +1,4 @@
+
 import { getTasksFromStorage } from "./getTasks.js";
 
 const displayTasks = () => {
@@ -48,12 +49,10 @@ const displayTasks = () => {
             const doingContainer = doingTree.querySelector(".tasks-container");
             doingContainer.appendChild(taskCard);
         }
-
-        
         else {
             const toDoContainer = toDoTree.querySelector(".tasks-container");
             toDoContainer.appendChild(taskCard);
-        }      
+        }
     }
 }
 

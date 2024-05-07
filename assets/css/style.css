@@ -13,7 +13,6 @@ main {
   justify-content: space-between;
   z-index: 0;
   background-color: #e4e5f1;
-  margin-top: 30px;
 }
 @media screen and (max-width: 768px) {
   main {
@@ -22,9 +21,6 @@ main {
 }
 main #toDo, main #done, main #doing {
   flex: 1;
-  display: flex;
-}
-main #toDo section, main #done section, main #doing section {
   display: flex;
   flex-direction: column;
   margin: 1.5em;
@@ -35,7 +31,7 @@ main #toDo section, main #done section, main #doing section {
   -webkit-backdrop-filter: blur(3px);
   text-align: center;
 }
-main #toDo section h2, main #done section h2, main #doing section h2 {
+main #toDo h2, main #done h2, main #doing h2 {
   padding: 1vh 0;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -44,50 +40,53 @@ main #toDo section h2, main #done section h2, main #doing section h2 {
   color: white;
   margin-bottom: 0.5em;
 }
-main #toDo section button, main #done section button, main #doing section button {
+main #toDo button, main #done button, main #doing button {
   background-color: #484b6a;
   color: white;
   box-shadow: 0px 0px 2px #b4b4b5;
 }
 @media screen and (max-width: 768px) {
-  main #toDo section, main #done section, main #doing section {
+  main #toDo, main #done, main #doing {
     width: 95%;
   }
 }
-main #toDo .mode, main #done .mode, main #doing .mode {
+main .mode {
   position: fixed;
   bottom: 0px;
   right: 0px;
 }
-main .tasks-container {
+
+.tasks-container {
   height: 80%;
 }
-main .buttons {
+
+.buttons {
   display: flex;
   justify-content: flex-end;
 }
-main main.darkMode {
+
+main.darkMode {
   background-color: #13192d;
 }
-main main.darkMode section {
+main.darkMode #toDo, main.darkMode #done, main.darkMode #doing {
   background-color: #102130;
   box-shadow: 0px 0px 5px #b4b4b5;
 }
-main main.darkMode section .task {
+main.darkMode #toDo .task, main.darkMode #done .task, main.darkMode #doing .task {
   background-color: #061424;
   color: #e4e5f1;
   box-shadow: rgba(184, 183, 183, 0.2) 0px 2px 8px 0px;
 }
-main main.darkMode section .task:hover {
+main.darkMode #toDo .task:hover, main.darkMode #done .task:hover, main.darkMode #doing .task:hover {
   box-shadow: rgba(255, 254, 254, 0.297) 0px 1px 2px, rgba(255, 254, 254, 0.297) 0px 0px 0px 2px;
 }
-main main.darkMode section h2 {
+main.darkMode #toDo h2, main.darkMode #done h2, main.darkMode #doing h2 {
   background-color: #061424;
 }
-main main.darkMode section p {
+main.darkMode #toDo p, main.darkMode #done p, main.darkMode #doing p {
   color: #e4e5f1;
 }
-main main.darkMode section button {
+main.darkMode #toDo button, main.darkMode #done button, main.darkMode #doing button {
   background-color: #061424;
   color: white;
   box-shadow: 0px 0px 2px #b4b4b5;
