@@ -18,6 +18,8 @@ const addTask = document.querySelectorAll('.add');
     })
 }
 
+
+//Affiche le formulaire pour mettre à jour la tâche sélèctionnée
 const task = document.querySelectorAll('.task');
 const edit_task = document.querySelectorAll('.edit_task');
 for (let i = 0; i < edit_task.length; i++) {
@@ -26,15 +28,7 @@ for (let i = 0; i < edit_task.length; i++) {
     })
 }
 
-//Donner lui La phrase du label, l'id du bouton yes et l'index à supprimé si il n'y a qu'un élement
-const deleteAllTask = document.querySelectorAll('.btnDelete');
-for (let i = 0; i < deleteAllTask.length; i++) {
-    deleteAllTask[i].addEventListener('click', () => {
-        deleteTaskModal('Delete all task ?', 'delete-all-task', i);
-    })
-    
-}
-
+//Supprime la tâche sélèctionnée
 const delete_task = document.querySelectorAll('.delete_task');
 for (let i = 0; i < delete_task.length; i++) {
     delete_task[i].addEventListener('click', (e) => {
@@ -50,6 +44,31 @@ for (let i = 0; i < delete_task.length; i++) {
     }) 
 }
 
+//Supprime toutes les tâches de la catégorie sélectionnée
+const deleteAllTodo = document.getElementById('delete-all-todo');
+const deleteAllDoing = document.getElementById('delete-all-doing');
+const deleteAllDone = document.getElementById('delete-all-done');
+deleteAllTodo.addEventListener('click', () => {
+    deleteTaskModal('Delete all task todo ?', 'delete-all-todo-task');
+})
+deleteAllDoing.addEventListener('click', () => {
+    deleteTaskModal('Delete all task doing ?', 'delete-all-doing-task');
+})
+deleteAllDone.addEventListener('click', () => {
+    deleteTaskModal('Delete all task done ?', 'delete-all-done-task');
+})
+    
+//Affiche quelque chose quand il n'y a rien dans une catègorie aide aussi pour le drag and drop
+const taskContainer = document.querySelectorAll('.tasks-container');
+for (let i = 0; i < taskContainer.length; i++) {
+    console.log(taskContainer[i].childElementCount);
+    if (taskContainer[i].childElementCount < 1) {
+        taskContainer[i].innerHTML = "<div class='drag-on'>Drag-on</div><p> No tasks at the moment ! </p>";
+    }
+}
+
+
+//Active le dark-mode
 let buttonDarkMode = document.querySelector('.checkbox');
 let isDarkModeEnabled = localStorage.getItem('darkModeEnabled');
 if (isDarkModeEnabled === 'true') {

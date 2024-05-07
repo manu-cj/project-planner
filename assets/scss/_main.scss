@@ -30,6 +30,13 @@ main {
             color: white;
             margin-bottom: .5em;
         }
+
+        button {
+            background-color: #484b6a;
+            color: white;
+            box-shadow: 0px 0px 2px #b4b4b5;
+        }
+        
         @include mobile {
             width: 95%;
         }  
@@ -50,8 +57,36 @@ main {
     justify-content: flex-end;
 }
 
-.darkMode {
-    section {
-        background-color: $darkish-blue;
+main.darkMode {
+    background-color: #13192d;
+
+    #toDo, #done, #doing  {
+        background-color: #102130;
+        box-shadow: 0px 0px 5px #b4b4b5;
+
+        .task {
+            background-color: #061424;
+            color: #e4e5f1;
+            box-shadow: rgba(184, 183, 183, 0.2) 0px 2px 8px 0px;
+
+            &:hover {
+                box-shadow: rgba(255, 254, 254, 0.297) 0px 1px 2px, rgba(255, 254, 254, 0.297) 0px 0px 0px 2px;
+            }
+
+        }
+
+        h2 {
+            background-color: #061424;
+        }
+
+        p {
+            color: #e4e5f1;
+        }
+
+        button {
+            background-color: #061424;
+            color: white;
+            box-shadow: 0px 0px 2px #b4b4b5;
+        }
     }
 }
