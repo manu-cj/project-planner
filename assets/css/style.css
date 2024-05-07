@@ -326,7 +326,7 @@ button {
   display: flex;
   align-items: center;
   text-align: justify;
-  padding: 0 0.4rem;
+  padding: 0.2em 0.4rem;
   word-wrap: wrap;
 }
 
@@ -340,6 +340,10 @@ button {
   justify-content: space-between;
   text-align: right;
 }
+.name_block h3 {
+  font-size: 18px;
+  font-weight: 500;
+}
 @media screen and (max-width: 768px) {
   .name_block {
     flex-direction: column;
@@ -349,6 +353,10 @@ button {
     order: 2;
     align-self: flex-start;
   }
+}
+
+.task-description {
+  font-size: 15px;
 }
 
 .controls {

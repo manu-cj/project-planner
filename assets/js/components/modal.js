@@ -1,5 +1,10 @@
 import { Task } from "./Task.js";
 
+let sanitizeInput = (inputValue) => {
+  let verifiedInput = inputValue.replace(/(<([^>]+)>)/gi, "");
+  return verifiedInput;
+}
+
 const modal = (actionType, submitValue, index) => {
   //Recherche des élèment du dom
   const body = document.querySelector("body");
@@ -101,9 +106,9 @@ const modal = (actionType, submitValue, index) => {
   if (actionType === "add") {
     submitInput.addEventListener("click", () => {
       const newTask = new Task(
-        taskTitleInput.value,
+        sanitizeInput(taskTitleInput.value),
         taskDateInput.value,
-        taskDescriptionTextarea.value,
+        sanitizeInput(taskDescriptionTextarea.value),
         generateToken(11),
         "todo"
       );
@@ -168,8 +173,8 @@ if (actionType === "update") {
 
       //Ajout de la tâche
       submitInput.addEventListener("click", () => {
-        tasks[idTask].name = taskTitleInput.value;
-        tasks[idTask].description = taskDescriptionTextarea.value;
+        tasks[idTask].name = sanitizeInput(taskTitleInput.value);
+        tasks[idTask].description = sanitizeInput(taskDescriptionTextarea.value);
         tasks[idTask].deadline = taskDateInput.value;
         tasks[idTask].status = radioValue;
 

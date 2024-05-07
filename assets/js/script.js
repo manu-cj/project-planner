@@ -1,7 +1,7 @@
 
 import { Task } from "./components/Task.js";
 import { getTasksFromStorage } from "./components/getTasks.js";
-import { displayTasks } from "./components/showTasks.js";
+import { displayTasks } from "./components/displayTasks.js";
 import { darkMode, clear } from './components/darkMode.js';
 
 import {modal} from './components/modal.js';
