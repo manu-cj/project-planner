@@ -7,13 +7,15 @@
 @import "header";
 @import "button";
 @import "modal";
+@import "filterMenu";
 
+@import "footer";
 @import "tasks";
 
 body {
-    background-color:#484b6a;
+    background-color:#e4e5f1; 
 
 }
 .darkMode {
-    background-color: $dark-blue;
+    background-color: #13192d;
 }

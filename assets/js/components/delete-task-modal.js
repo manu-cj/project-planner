@@ -1,6 +1,9 @@
+import { getTasksFromStorage } from "./getTasks.js";
+
 const deleteTaskModal = (textLabel, inputId, index) => {
     //Recherche des élèment du dom
     const body = document.querySelector('body');
+    let buttonDarkMode = document.querySelector('.checkbox');
 
     //Création des élèments
     let myModal = document.createElement('div');
@@ -45,6 +48,52 @@ const deleteTaskModal = (textLabel, inputId, index) => {
     form.appendChild(labelDelete);
     form.appendChild(inputYes);
     form.appendChild(inputNo);
+
+
+     //Gestion des couleurs du darkMode de la fenêtre
+  if (buttonDarkMode.checked === true) {
+    modalSection.classList.add('darkMode');
+    modalSection.style.backgroundColor = '#242424';
+
+    inputYes.style.backgroundColor = '#344955';
+    inputYes.style.color = '#FFFFFF';
+
+    inputNo.style.backgroundColor = '#344955';
+    inputNo.style.color = '#FFFFFF';
+
+    inputYes.addEventListener('mouseover', () => {
+      inputYes.style.backgroundColor = 'lightseagreen';
+    })
+    inputYes.addEventListener('mouseleave', () => {
+      inputYes.style.backgroundColor = '#344955';
+    })
+
+    inputNo.addEventListener('mouseover', () => {
+        inputNo.style.backgroundColor = 'tomato';
+      })
+      inputNo.addEventListener('mouseleave', () => {
+        inputNo.style.backgroundColor = '#344955';
+      })
+  }
+
+  function deleteAll(type, id) {
+    let tasks = getTasksFromStorage();
+    if (inputId === id) {
+        inputYes.addEventListener('click', () => {
+            tasks.forEach(tas => {
+                if (tas.status === type) {
+                    tas.deleteTask();
+                }
+            });
+        })
+    }
+  }
+
+  deleteAll('todo', 'delete-all-todo-task');
+  deleteAll('doing', 'delete-all-doing-task');
+  deleteAll('done', 'delete-all-done-task');
+
+    
 
 
 
