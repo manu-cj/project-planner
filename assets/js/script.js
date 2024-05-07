@@ -5,9 +5,8 @@ import { darkMode, clear } from './components/darkMode.js';
 
 import {modal} from './components/modal.js';
 import {deleteTaskModal} from './components/delete-task-modal.js';
-import { toggleFilterMenu, clearFilters, updateFilters } from './components/filters.js'
+import { toggleFilterMenu, clearFilters } from './components/filters.js'
 
-displayTasks();
 
 /*Donner lui le type de tache, le texte du bouton submit et 
 l'index, à appeler lors de l'advEventListenner de l'ajout de tache et update*/
@@ -61,7 +60,6 @@ deleteAllDone.addEventListener('click', () => {
 //Affiche quelque chose quand il n'y a rien dans une catègorie aide aussi pour le drag and drop
 const taskContainer = document.querySelectorAll('.tasks-container');
 for (let i = 0; i < taskContainer.length; i++) {
-    console.log(taskContainer[i].childElementCount);
     if (taskContainer[i].childElementCount < 1) {
         taskContainer[i].innerHTML = "<div class='drag-on'>Drag-on</div><p> No tasks at the moment ! </p>";
     }
@@ -93,9 +91,10 @@ filterButton.addEventListener("click", () => {
     toggleFilterMenu();
 })
 
-
 // sets filters by default if no preferences stored in local storage
 const filterPreferences = localStorage.getItem('taskFilters');
 if (!filterPreferences) {
     clearFilters();
 }
+
+displayTasks();

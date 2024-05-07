@@ -12,14 +12,15 @@ const clickOut = (e) => {
     }
 }
 
+// Resets any existing filters in the local Storage
 const clearFilters = () => {
-    const keyword = document.getElementById('searchbar').value.toLowerCase();
-    const todo = document.getElementById('todoBox').checked;
-    const doing = document.getElementById('doingBox').checked;
-    const done = document.getElementById('doneBox').checked;
-    const overdue = document.getElementById('overdueBox').checked;
-    const endOfDay = document.getElementById('endOfDayBox').checked;
-    const dueNextDays = document.getElementById('dueNextDaysBox').checked;
+    const keyword = "";
+    const todo = true; 
+    const doing = true;
+    const done = true; 
+    const overdue = true; 
+    const endOfDay = true; 
+    const dueNextDays = true; 
     localStorage.setItem('taskFilters', JSON.stringify({
         keyword,
         todo,
@@ -29,58 +30,35 @@ const clearFilters = () => {
         endOfDay,
         dueNextDays
     }));
-    updateFilters();
-    applyFilters();
+    displayTasks();
 }
 
 const applyFilters = () => {
-    const tasks = getTasksFromStorage();
-    const toDoTree = document.querySelector("#toDo");
-    const doingTree = document.querySelector("#doing");
-    const doneTree = document.querySelector("#done");
     // Stores status of each filter into variables.
     const keyword = document.querySelector('#searchbar').value.toLowerCase();
-    const todoChecked = document.querySelector('#todoBox').checked;
-    const doingChecked = document.querySelector('#doingBox').checked;
-    const doneChecked = document.querySelector('#doneBox').checked;
-    const overdueChecked = document.querySelector('#overdueBox').checked;
-    const endOfDayChecked = document.querySelector('#endOfDayBox').checked;
-    const dueNextDaysChecked = document.querySelector('#dueNextDaysBox').checked;
-
-    // Sets display for sections depending on selected filter
-    toDoTree.style.display = todoChecked ? "flex" : "none";
-    doingTree.style.display = doingChecked ? "flex" : "none";
-    doneTree.style.display = doneChecked ? "flex" : "none";
-
-    for (let task of tasks) {
-        const taskCard = document.getElementById(task.id);
-        const taskName = task.name.toLowerCase();
-        const taskDescription = task.description.toLowerCase();
-        const now = new Date();
-        const deadline = new Date(task.deadline);
-        let delta = deadline - now;
-        delta = Math.ceil(delta / (1000 * 60 * 60 * 24));
-
-        // checks if the task should be displayed or not depending on filters.
-        const shouldDisplay = (
-            (keyword === '' || taskName.includes(keyword) || taskDescription.includes(keyword)) 
-            && 
-            ((delta === 1 && endOfDayChecked) || (delta > 1 && dueNextDaysChecked) ||  (delta < 0 && overdueChecked))
-        );
-        if (shouldDisplay) {
-            taskCard.style.display = 'flex';
-        } else {
-            taskCard.style.display = 'none';
-        }
-    }
-    updateFilters();
+    const todo = document.querySelector('#todoBox').checked;
+    const doing = document.querySelector('#doingBox').checked;
+    const done = document.querySelector('#doneBox').checked;
+    const overdue = document.querySelector('#overdueBox').checked;
+    const endOfDay= document.querySelector('#endOfDayBox').checked;
+    const dueNextDays = document.querySelector('#dueNextDaysBox').checked;
+    localStorage.setItem('taskFilters', JSON.stringify({
+        keyword,
+        todo,
+        doing,
+        done,
+        overdue,
+        endOfDay,
+        dueNextDays,
+    }));
+    displayTasks();
 };
 
+// Generates content for the filter menu
 const addFilterContent = () => {
     const content = document.createElement("div");
     content.classList.add("filter-content");
     let filters = JSON.parse(localStorage.getItem('taskFilters'));
-    console.log(filters.keyword);
     content.innerHTML = `
     <h3>Filter Tasks</h3>
     <section class="filter">
@@ -89,15 +67,15 @@ const addFilterContent = () => {
     </section>
     <section class="filter">
         <h4>by status</h4>
-        <label><input type="checkbox" id="todoBox" checked> To do</label>
-        <label><input type="checkbox" id="doingBox" checked> Doing</label>
-        <label><input type="checkbox" id="doneBox" checked> Done </label>
+        <label><input type="checkbox" id="todoBox" ${filters.todo ? 'checked' : ''}> To do</label>
+        <label><input type="checkbox" id="doingBox" ${filters.doing ? 'checked' : ''}> Doing</label>
+        <label><input type="checkbox" id="doneBox" ${filters.done ? 'checked' : ''}> Done </label>
     </section>
     <section class="filter">
         <h4>by deadline</h4>
-        <label><input type="checkbox" id="overdueBox" checked> Overdue</label>
-        <label><input type="checkbox" id="endOfDayBox" checked> End of Day</label>
-        <label><input type="checkbox" id="dueNextDaysBox" checked> Due in the next days </label>
+        <label><input type="checkbox" id="overdueBox" ${filters.overdue ? 'checked' : ''}> Overdue</label>
+        <label><input type="checkbox" id="endOfDayBox" ${filters.endOfDay ? 'checked' : ''}> End of Day</label>
+        <label><input type="checkbox" id="dueNextDaysBox" ${filters.dueNextDays ? 'checked' : ''}> Due in the next days </label>
     </section>
     <div class="buttons">
         <button id="clearFilters"type="submit">Clear filters</button>
@@ -107,6 +85,7 @@ const addFilterContent = () => {
     return content;
 }
 
+// Displays / Hides the filter menu
 const toggleFilterMenu = () => {
     // toggles on or off the filter menu
     const filterMenu = document.querySelector(".filter-menu");
@@ -131,28 +110,8 @@ const toggleFilterMenu = () => {
     else {
         filterMenu.style.display = "none";
         document.removeEventListener("click", clickOut);
-        return;
     }
 }
 
-// not used for now : to check || local storage?
-const updateFilters = () => {
-    const keyword = document.getElementById('searchbar').value.toLowerCase();
-    const todo = document.getElementById('todoBox').checked;
-    const doing = document.getElementById('doingBox').checked;
-    const done = document.getElementById('doneBox').checked;
-    const overdue = document.getElementById('overdueBox').checked;
-    const endOfDay = document.getElementById('endOfDayBox').checked;
-    const dueNextDays = document.getElementById('dueNextDaysBox').checked;
-    localStorage.setItem('taskFilters', JSON.stringify({
-        keyword,
-        todo,
-        doing,
-        done,
-        overdue,
-        endOfDay,
-        dueNextDays
-    }));
-}
 
-export { toggleFilterMenu, updateFilters, clearFilters };
+export { toggleFilterMenu, clearFilters };
