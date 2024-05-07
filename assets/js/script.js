@@ -28,13 +28,13 @@ for (let i = 0; i < edit_task.length; i++) {
 }
 
 //Donner lui La phrase du label, l'id du bouton yes et l'index à supprimé si il n'y a qu'un élement
-const deleteAllTask = document.querySelectorAll('.btnDelete');
-for (let i = 0; i < deleteAllTask.length; i++) {
-    deleteAllTask[i].addEventListener('click', () => {
-        deleteTaskModal('Delete all task ?', 'delete-all-task', i);
-    })
+// const deleteAllTask = document.querySelectorAll('.btnDelete');
+// for (let i = 0; i < deleteAllTask.length; i++) {
+//     deleteAllTask[i].addEventListener('click', () => {
+        
+//     })
     
-}
+// }
 
 const delete_task = document.querySelectorAll('.delete_task');
 for (let i = 0; i < delete_task.length; i++) {
@@ -69,3 +69,29 @@ let isDarkModeEnabled = localStorage.getItem('darkModeEnabled');
         }
     }) 
 
+
+
+const deleteAllTodo = document.getElementById('delete-all-todo');
+const deleteAllDoing = document.getElementById('delete-all-doing');
+const deleteAllDone = document.getElementById('delete-all-done');
+
+
+deleteAllTodo.addEventListener('click', () => {
+    deleteTaskModal('Delete all task todo ?', 'delete-all-todo-task');
+})
+deleteAllDoing.addEventListener('click', () => {
+    deleteTaskModal('Delete all task doing ?', 'delete-all-doing-task');
+})
+deleteAllDone.addEventListener('click', () => {
+    deleteTaskModal('Delete all task done ?', 'delete-all-done-task');
+})
+    
+    
+const taskContainer = document.querySelectorAll('.tasks-container');
+for (let i = 0; i < taskContainer.length; i++) {
+    console.log(taskContainer[i].childElementCount);
+    if (taskContainer[i].childElementCount < 1) {
+        taskContainer[i].innerHTML = "<p> No stains yet ! </p>"
+    }
+    
+}

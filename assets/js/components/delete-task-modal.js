@@ -1,3 +1,5 @@
+import { getTasksFromStorage } from "./getTasks.js";
+
 const deleteTaskModal = (textLabel, inputId, index) => {
     //Recherche des élèment du dom
     const body = document.querySelector('body');
@@ -73,6 +75,25 @@ const deleteTaskModal = (textLabel, inputId, index) => {
         inputNo.style.backgroundColor = '#344955';
       })
   }
+
+  function deleteAll(type, id) {
+    let tasks = getTasksFromStorage();
+    if (inputId === id) {
+        inputYes.addEventListener('click', () => {
+            tasks.forEach(tas => {
+                if (tas.status === type) {
+                    tas.deleteTask();
+                }
+            });
+        })
+    }
+  }
+
+  deleteAll('todo', 'delete-all-todo-task');
+  deleteAll('doing', 'delete-all-doing-task');
+  deleteAll('done', 'delete-all-done-task');
+
+    
 
 
 
