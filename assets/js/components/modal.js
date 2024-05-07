@@ -113,7 +113,6 @@ const modal = (actionType, submitValue, index) => {
     });
   }
 
-
   //Implèmentation des élèments dans le document
   body.appendChild(myModal);
   myModal.appendChild(modalSection);
@@ -182,7 +181,6 @@ if (actionType === "update") {
       console.log("Une erreur est survenue !");
     }
   }
-
 
   //Fermeture de la modal et reset
   closeIcon.addEventListener("click", () => {

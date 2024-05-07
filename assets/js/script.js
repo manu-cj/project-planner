@@ -5,7 +5,7 @@ import { darkMode, clear } from './components/darkMode.js';
 
 import {modal} from './components/modal.js';
 import {deleteTaskModal} from './components/delete-task-modal.js';
-import { toggleFilterMenu, updateFilters } from './components/filters.js'
+import { toggleFilterMenu, clearFilters, updateFilters } from './components/filters.js'
 
 displayTasks();
 
@@ -78,20 +78,5 @@ filterButton.addEventListener("click", () => {
 // sets filters by default if no preferences stored in local storage
 const filterPreferences = localStorage.getItem('taskFilters');
 if (!filterPreferences) {
-    const keyword = "";
-    const todo = true;
-    const doing = true;
-    const done = true;
-    const overdue = true;
-    const endOfDay = true;
-    const dueNextDays = true;
-    localStorage.setItem('taskFilters', JSON.stringify({
-        keyword,
-        todo,
-        doing,
-        done,
-        overdue,
-        endOfDay,
-        dueNextDays
-    }));    
+    clearFilters();
 }
