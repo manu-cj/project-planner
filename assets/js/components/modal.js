@@ -149,7 +149,7 @@ const modal = (actionType, submitValue, index) => {
     submitInput.style.color = '#FFFFFF';
 
     submitInput.addEventListener('mouseover', () => {
-      submitInput.style.backgroundColor = '#27AE60';
+      submitInput.style.backgroundColor = 'lightseagreen';
     })
     submitInput.addEventListener('mouseleave', () => {
       submitInput.style.backgroundColor = '#344955';
