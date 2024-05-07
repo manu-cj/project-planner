@@ -2,16 +2,19 @@ main {
     display: flex;
     flex-direction: row;
     min-height: 80vh;
-    padding : 3vh 2vh;
+    padding: 3vh 2vh;
     box-sizing: border-box;
     justify-content: space-between;
     z-index: 0;
     background-color: #e4e5f1;
+    margin-top: 30px;
+
     @include mobile {
         flex-direction: column;
     }
+
     section {
-        display:flex;
+        display: flex;
         flex-direction: column;
         width: 30%;
         margin: 1.5em;
@@ -21,19 +24,29 @@ main {
         backdrop-filter: blur(6.2px);
         -webkit-backdrop-filter: blur(3px);
         text-align: center;
+
         h2 {
             padding: 1vh 0;
             border-top-left-radius: 10px;
-            border-top-right-radius: 10px; 
+            border-top-right-radius: 10px;
             font-weight: 400;
             background-color: #484b6a;
             color: white;
             margin-bottom: .5em;
         }
+
+        button {
+            background-color: #484b6a;
+            color: white;
+            box-shadow: 0px 0px 2px #b4b4b5;
+        }
+
+
         @include mobile {
             width: 95%;
-        }  
+        }
     }
+
     .mode {
         position: fixed;
         bottom: 0px;
@@ -50,8 +63,36 @@ main {
     justify-content: flex-end;
 }
 
-.darkMode {
+main.darkMode {
+    background-color: #13192d;
+
     section {
-        background-color: $darkish-blue;
+        background-color: #102130;
+        box-shadow: 0px 0px 5px #b4b4b5;
+
+        .task {
+            background-color: #061424;
+            color: #e4e5f1;
+            box-shadow: rgba(184, 183, 183, 0.2) 0px 2px 8px 0px;
+
+            &:hover {
+                box-shadow: rgba(255, 254, 254, 0.297) 0px 1px 2px, rgba(255, 254, 254, 0.297) 0px 0px 0px 2px;
+            }
+
+        }
+
+        h2 {
+            background-color: #061424;
+        }
+
+        p {
+            color: #e4e5f1;
+        }
+
+        button {
+            background-color: #061424;
+            color: white;
+            box-shadow: 0px 0px 2px #b4b4b5;
+        }
     }
 }

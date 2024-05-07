@@ -5,6 +5,7 @@ const displayTasks = () => {
     const toDoTree = document.querySelector("#toDo");
     const doingTree = document.querySelector("#doing");
     const doneTree = document.querySelector("#done");
+    let buttonDarkMode = document.querySelector('.checkbox');
     for (let task of tasks) {
         let now = new Date();
         let deadline = new Date(task.deadline);
@@ -47,7 +48,7 @@ const displayTasks = () => {
         else {
             const toDoContainer = toDoTree.querySelector(".tasks-container");
             toDoContainer.appendChild(taskCard);
-        }
+        }      
     }
 }
 

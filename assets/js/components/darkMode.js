@@ -1,7 +1,6 @@
 let body = document.querySelector('body');
 let header = document.querySelector('header');
 let main = document.querySelector('main');
-let modalSection = document.querySelector('.modal-section')
 
 
 export function darkMode () {
@@ -14,7 +13,7 @@ export function darkMode () {
 export function clear () {
     body.classList.remove('darkMode');
     header.classList.remove('darkMode');
-    main.classList.remove('darkMode');
+    main.classList.remove('darkMode');  
     localStorage.setItem('darkModeEnabled', 'false');
 }
 
