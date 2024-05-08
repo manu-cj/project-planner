@@ -83,7 +83,7 @@ export function initializeDragDrop() {
                 }
             }
             
-            displayTasks();
+            location.reload();
             return false;
         }
 
