@@ -98,15 +98,15 @@ const generateCard = (task) => {
     `
     if (delta < 0) {
         taskCard.innerHTML += 
-        `<p class="task-deadline overdue"><img src="assets/images/clock.svg">${delta} j</p>`
+        `<p class="task-deadline overdue"><span class="deadline"><img src="assets/images/clock.svg"><span>${delta} j</span></span></p>`
     }
     else if (delta > 1) {
         taskCard.innerHTML +=
-        `<p class="task-deadline due-next-days"><img src="assets/images/clock.svg">${delta} j</p>`
+        `<p class="task-deadline due-next-days"><span class="deadline"><img src="assets/images/clock.svg"><span>${delta} j</span></span></p>`
     }
     else {
         taskCard.innerHTML +=
-        `<p class="task-deadline end-of-day"><img src="assets/images/clock.svg">${delta} j</p>`
+        `<p class="task-deadline end-of-day"><span class="deadline"><img src="assets/images/clock.svg"><span>${delta} j</span></span></p>`
     }
     return taskCard;
 }

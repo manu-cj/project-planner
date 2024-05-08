@@ -554,10 +554,27 @@ footer {
   flex-direction: row;
   justify-content: flex-end;
 }
-.task img {
+.task .task-deadline span {
+  display: flex;
+  align-items: center;
   height: 25px;
-  width: 25px;
-  padding-right: 5px;
+  padding: 1px 5px;
+  border-radius: 10px;
+  color: white;
+}
+.task .overdue span {
+  background-color: rgb(205, 56, 56);
+}
+.task .end-of-day span {
+  background-color: rgb(238, 171, 46);
+}
+.task .due-next-days span {
+  background-color: rgb(90, 200, 90);
+}
+.task img {
+  height: 20px;
+  width: 20px;
+  padding-right: 3px;
 }
 .task > * {
   display: flex;
@@ -611,10 +628,6 @@ footer {
 .controls img:hover {
   transition: ease 0.7s;
   transform: scale(110%);
-}
-
-.overdue {
-  color: red !important;
 }
 
 .task .darkMode {
