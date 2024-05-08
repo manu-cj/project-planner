@@ -61,6 +61,7 @@ const displayTasks = () => {
             }
         }         
     }
+    displayNoTask();
 }
 
 const generateCard = (task) => {
@@ -75,15 +76,29 @@ const generateCard = (task) => {
     </div>
     <p class="task-description">${task.description}</p>
     `
-    if (delta <= 1) {
+    if (delta < 0) {
         taskCard.innerHTML += 
-        `<p class="task-deadline important"><img src="assets/images/clock.svg">${delta} j</p>`
+        `<p class="task-deadline overdue"><img src="assets/images/clock.svg">${delta} j</p>`
+    }
+    else if (delta > 1) {
+        taskCard.innerHTML +=
+        `<p class="task-deadline due-next-days"><img src="assets/images/clock.svg">${delta} j</p>`
     }
     else {
         taskCard.innerHTML +=
-        `<p class="task-deadline"><img src="assets/images/clock.svg">${delta} j</p>`
-    } 
+        `<p class="task-deadline end-of-day"><img src="assets/images/clock.svg">${delta} j</p>`
+    }
     return taskCard;
+}
+
+//Affiche quelque chose quand il n'y a rien dans une catègorie aide aussi pour le drag and drop
+const displayNoTask = () => {
+    const taskContainer = document.querySelectorAll('.tasks-container');
+    for (let i = 0; i < taskContainer.length; i++) {
+        if (taskContainer[i].childElementCount < 1) {
+            taskContainer[i].innerHTML = "<div class='drag-on'>Drag-on</div><p> No tasks at the moment ! </p>";
+        }
+    }
 }
 
 export {displayTasks, getDelta }

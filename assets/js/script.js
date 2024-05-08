@@ -59,6 +59,7 @@ deleteAllDoing.addEventListener('click', () => {
 deleteAllDone.addEventListener('click', () => {
     deleteTaskModal('Delete all task done ?', 'delete-all-done-task');
 })
+
     
 //Affiche quelque chose quand il n'y a rien dans une catègorie aide aussi pour le drag and drop
 /*const taskContainer = document.querySelectorAll('.tasks-container');
@@ -67,6 +68,7 @@ for (let i = 0; i < taskContainer.length; i++) {
         taskContainer[i].innerHTML = "<div class='task' id='a' draggable='true'>Drag-on<p> No tasks at the moment ! </p></div>";
     } 
 }*/
+
 
 
 //Active le dark-mode

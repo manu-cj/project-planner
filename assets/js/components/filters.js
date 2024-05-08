@@ -113,5 +113,4 @@ const toggleFilterMenu = () => {
     }
 }
 
-
 export { toggleFilterMenu, clearFilters };

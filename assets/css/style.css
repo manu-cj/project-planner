@@ -33,6 +33,7 @@ main #toDo, main #done, main #doing {
   -webkit-backdrop-filter: blur(3px);
   text-align: center;
 }
+
 @media screen and (max-width: 768px) {
   main #toDo, main #done, main #doing {
     height: 80%;
@@ -56,6 +57,7 @@ main #toDo h2 .sort_icon, main #done h2 .sort_icon, main #doing h2 .sort_icon {
   height: 20px;
   justify-items: right;
 }
+
 main #toDo button, main #done button, main #doing button {
   background-color: #484b6a;
   color: white;
@@ -70,6 +72,27 @@ main .mode {
   position: fixed;
   bottom: 0px;
   right: 0px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #484b6a;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 1vh;
+  padding: 1vh 0;
+}
+.section-title h2 {
+  margin-left: 45%;
+  font-weight: 400;
+  color: white;
+}
+.section-title img {
+  padding-right: 30px;
+  width: 25px;
+  height: 25px;
 }
 
 .tasks-container {
@@ -115,7 +138,7 @@ main.darkMode #toDo .task, main.darkMode #done .task, main.darkMode #doing .task
 main.darkMode #toDo .task:hover, main.darkMode #done .task:hover, main.darkMode #doing .task:hover {
   box-shadow: rgba(255, 254, 254, 0.297) 0px 1px 2px, rgba(255, 254, 254, 0.297) 0px 0px 0px 2px;
 }
-main.darkMode #toDo h2, main.darkMode #done h2, main.darkMode #doing h2 {
+main.darkMode #toDo .section-title, main.darkMode #done .section-title, main.darkMode #doing .section-title {
   background-color: #061424;
 }
 main.darkMode #toDo p, main.darkMode #done p, main.darkMode #doing p {
@@ -466,6 +489,21 @@ button {
   width: 65%;
 }
 
+.filter-menu.darkMode {
+  background-color: #102130;
+  box-shadow: 0px 0px 5px #b4b4b5;
+  color: white;
+}
+.filter-menu.darkMode button {
+  background-color: #061424;
+  color: white;
+  box-shadow: 0px 0px 2px #b4b4b5;
+}
+.filter-menu.darkMode #searchbar {
+  background-color: rgb(52, 73, 85);
+  color: rgb(255, 255, 255);
+}
+
 footer {
   height: 4vh;
 }
@@ -556,8 +594,8 @@ footer {
   transform: scale(110%);
 }
 
-.important {
-  color: red;
+.overdue {
+  color: red !important;
 }
 
 .task .darkMode {
