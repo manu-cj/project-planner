@@ -33,42 +33,23 @@ main #toDo, main #done, main #doing {
   -webkit-backdrop-filter: blur(3px);
   text-align: center;
 }
-
 @media screen and (max-width: 768px) {
   main #toDo, main #done, main #doing {
     height: 80%;
   }
 }
-main #toDo h2, main #done h2, main #doing h2 {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  padding: 1vh 0;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  font-weight: 400;
-  background-color: #484b6a;
-  color: white;
-  margin-bottom: 0.5em;
-}
-main #toDo h2 .sort_icon, main #done h2 .sort_icon, main #doing h2 .sort_icon {
-  padding: 0 1vw;
-  width: 20px;
-  height: 20px;
-  justify-items: right;
-}
-
-main #toDo button, main #done button, main #doing button {
+main button {
   background-color: #484b6a;
   color: white;
   box-shadow: 0px 0px 2px #b4b4b5;
 }
 @media screen and (max-width: 768px) {
-  main #toDo, main #done, main #doing {
+  main {
     width: 95%;
   }
 }
-main .mode {
+
+.mode {
   position: fixed;
   bottom: 0px;
   right: 0px;
@@ -613,4 +594,4 @@ body {
 
 .darkMode {
   background-color: #13192d;
-}
+}/*# sourceMappingURL=style.css.map */
