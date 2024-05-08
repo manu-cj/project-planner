@@ -9,7 +9,8 @@ import { toggleFilterMenu, clearFilters } from './components/filters.js'
 import { switchSort } from "./components/sort.js"
 import { initializeDragDrop } from './components/dragAndDrop.js';
 
-displayTasks();
+
+
 initializeDragDrop();
 
 
@@ -40,6 +41,8 @@ sortTodo.addEventListener("click", (e) => {
     switchSort(sortTodo);
 })
 
+
+displayTasks();
 
 /*Donner lui le type de tache, le texte du bouton submit et 
 l'index, à appeler lors de l'advEventListenner de l'ajout de tache et update*/
