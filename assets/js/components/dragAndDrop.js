@@ -1,4 +1,4 @@
-let items;
+    let items;
 let dragSrcEl = null;
 
 export function initializeDragDrop() {
@@ -82,7 +82,7 @@ export function initializeDragDrop() {
                     }
                 }
             }
-            
+        
             return false;
         }
 
