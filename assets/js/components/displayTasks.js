@@ -1,5 +1,6 @@
 import { getTasksFromStorage } from "./getTasks.js";
 import { modal } from "./modal.js"
+import { deleteTaskModal } from "./delete-task-modal.js";
 
 const getDelta = (task) => {
     let now = new Date();
@@ -69,8 +70,8 @@ const displayTasks = () => {
             deleteButton.addEventListener('click', (e) => {
                 let id = e.target.id.split("_")[1];
                 deleteTaskModal('Delete this task ?', 'delete-task', id);
-                const deleteButton = document.querySelector("#delete-task");
-                deleteButton.addEventListener("click", () => {
+                const deleteOption = document.querySelector("#delete-task");
+                deleteOption.addEventListener("click", () => {
                     const tasks = getTasksFromStorage();
                     let taskIndex = tasks.findIndex(t => t.id === id);
                     tasks.splice(taskIndex, 1);
