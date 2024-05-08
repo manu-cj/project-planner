@@ -166,7 +166,6 @@ const modal = (actionType, submitValue, index) => {
     //Ajout de la tache en localStorage
     if (actionType === "add") {
       submitInput.addEventListener("click", () => {
-        console.log(radioValue)
         const newTask = new Task(
           sanitizeInput(taskTitleInput.value),
           taskDateInput.value,
