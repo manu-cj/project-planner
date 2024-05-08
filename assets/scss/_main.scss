@@ -43,7 +43,7 @@ main {
         bottom: 0px;
         right: 0px;
     }
-}
+
 
 .section-title {
     display:flex;
@@ -84,7 +84,7 @@ main {
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: #484b6a;
+        background-color: rgb(228, 226, 226);
         border-radius: 3px;
     }
 }
@@ -97,6 +97,17 @@ main {
     align-items: end;
     border-radius: 10px;
     padding: 10px;
+    button {
+        background-color: #484b6a;
+        color: white;
+        box-shadow: 0px 0px 2px #b4b4b5;
+    }
+    .add:hover {
+        background-color: lightseagreen;
+    }
+    .btnDelete:hover {
+        background-color: tomato;
+    }
 }
 
 main.darkMode {
@@ -124,11 +135,35 @@ main.darkMode {
         p {
             color: #e4e5f1;
         }
-
-        button {
-            background-color: #061424;
-            color: white;
-            box-shadow: 0px 0px 2px #b4b4b5;
+        .buttons {
+            button {
+                background-color: #061424;
+                color: white;
+                box-shadow: 0px 0px 2px #b4b4b5;
+            }
+            .add:hover {
+                background-color: lightseagreen;
+            }
+            .btnDelete:hover {
+                background-color: tomato;
+            }
         }
+        .tasks-container {
+            &::-webkit-scrollbar {
+                width: 8px;
+                border-radius: 15px;
+            }
+        
+            &::-webkit-scrollbar-track {
+                background-color: #102130;
+            }
+        
+            &::-webkit-scrollbar-thumb {
+                background-color: #061424;
+                border-radius: 3px;
+            }
+        }
+        
+        
     }
 }
