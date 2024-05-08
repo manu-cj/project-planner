@@ -12,6 +12,7 @@ main {
   box-sizing: border-box;
   justify-content: space-between;
   z-index: 0;
+  margin-top: 10vh;
   background-color: #e4e5f1;
 }
 @media screen and (max-width: 768px) {
@@ -177,7 +178,10 @@ main {
 
 header {
   display: flex;
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 20;
   height: 10vh;
   background-color: #484b6a;
   box-shadow: 0px 0px 5px #484b6a;
@@ -462,20 +466,21 @@ button {
   }
 }
 .filter-menu {
+  color: #061424;
   display: flex;
   position: absolute;
-  z-index: 5;
+  z-index: 25;
   border-radius: 10px;
   background-color: rgb(255, 255, 255);
   height: 70vh;
   width: 25vw;
   padding: 2%;
-  top: 8.5vh;
+  top: 8vh;
   right: 3%;
 }
 @media screen and (max-width: 768px) {
   .filter-menu {
-    width: 50vw;
+    width: 55vw;
   }
 }
 

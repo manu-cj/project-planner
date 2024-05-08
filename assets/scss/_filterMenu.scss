@@ -1,16 +1,17 @@
 .filter-menu {
+    color:#061424;
     display: flex;
     position: absolute;
-    z-index: 5;
+    z-index: 25;
     border-radius: 10px;
     background-color: rgba(255,255,255);
     height: 70vh;
     width: 25vw;
     padding: 2%;
     @include mobile {
-        width: 50vw;
+        width: 55vw;
     }
-    top : 8.5vh;
+    top : 8vh;
     right: 3%;
 }
 
