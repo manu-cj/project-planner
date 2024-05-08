@@ -54,6 +54,7 @@ const deleteTaskModal = (textLabel, inputId, index) => {
   if (buttonDarkMode.checked === true) {
     modalSection.classList.add('darkMode');
     modalSection.style.backgroundColor = '#242424';
+    modalSection.style.color = '#FFFFFF';
 
     inputYes.style.backgroundColor = '#344955';
     inputYes.style.color = '#FFFFFF';
