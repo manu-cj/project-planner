@@ -6,6 +6,7 @@ import { darkMode, clear } from './components/darkMode.js';
 import {modal} from './components/modal.js';
 import {deleteTaskModal} from './components/delete-task-modal.js';
 import { toggleFilterMenu, clearFilters } from './components/filters.js'
+import { switchSort } from "./components/sort.js"
 import { initializeDragDrop } from './components/dragAndDrop.js';
 
 displayTasks();
@@ -98,3 +99,19 @@ const filterPreferences = localStorage.getItem('taskFilters');
 if (!filterPreferences) {
     clearFilters();
 }
+
+const sortDone = document.querySelector("#sort-done");
+sortDone.addEventListener("click", (e) => {
+    switchSort(sortDone);
+})
+
+const sortDoing = document.querySelector("#sort-doing");
+sortDoing.addEventListener("click", (e) => {
+    switchSort(sortDoing);
+})
+
+const sortTodo = document.querySelector("#sort-todo");
+sortTodo.addEventListener("click", (e) => {
+    switchSort(sortTodo);
+})
+
