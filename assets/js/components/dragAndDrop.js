@@ -1,6 +1,6 @@
 let items;
 let dragSrcEl = null;
-
+import { displayTasks } from "./displayTasks.js";
 export function initializeDragDrop() {
     document.addEventListener('DOMContentLoaded', () => {
         
@@ -83,6 +83,7 @@ export function initializeDragDrop() {
                 }
             }
             
+            displayTasks();
             return false;
         }
 
