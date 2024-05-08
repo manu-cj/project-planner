@@ -57,6 +57,8 @@ deleteAllDoing.addEventListener('click', () => {
 deleteAllDone.addEventListener('click', () => {
     deleteTaskModal('Delete all task done ?', 'delete-all-done-task');
 })
+    
+
 
 
 //Active le dark-mode

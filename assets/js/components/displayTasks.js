@@ -59,7 +59,35 @@ const displayTasks = () => {
                 const toDoContainer = toDoTree.querySelector(".tasks-container");
                 toDoContainer.appendChild(taskCard);
             }
-        }         
+        }
+        taskCard.querySelector('.edit_task').addEventListener()
+        //Affiche le formulaire pour mettre à jour la tâche sélèctionnée
+        const task = document.querySelectorAll('.task');
+        const edit_task = document.querySelectorAll('.edit_task');
+        ('click', () => {
+            modal('update', 'update-task', task[i].id);
+        })
+    for (let i = 0; i < edit_task.length; i++) {
+        edit_task[i].addEventListener('click', () => {
+            modal('update', 'update-task', task[i].id);
+        })
+    }
+
+    //Supprime la tâche sélèctionnée
+    const delete_task = document.querySelectorAll('.delete_task');
+    for (let i = 0; i < delete_task.length; i++) {
+        delete_task[i].addEventListener('click', (e) => {
+            let id = (e.target.id.split("_")[1]);
+            deleteTaskModal('Delete this task ?', 'delete-task', i);
+            const deleteButton = document.querySelector("#delete-task");
+            deleteButton.addEventListener("click", () => {
+                const tasks = getTasksFromStorage();
+                let task = tasks.find(task => task.id === id);
+                task.deleteTask()
+                displayTasks();
+            })
+        }) 
+    }         
     }
     displayNoTask();
 }
