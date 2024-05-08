@@ -9,7 +9,9 @@ main {
     background-color: #e4e5f1;
     @include mobile {
         flex-direction: column;
+        justify-content: center;
         align-items: center;
+        align-content: center;
     }
     #toDo, #done, #doing {
         max-height: 550px;
@@ -25,6 +27,7 @@ main {
         text-align: center;
       
         @include mobile {
+            width: 100%;
             height: 80%;
         }
         }
