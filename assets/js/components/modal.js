@@ -168,9 +168,9 @@ const modal = (actionType, submitValue, index) => {
       submitInput.addEventListener("click", () => {
         console.log(radioValue)
         const newTask = new Task(
-          taskTitleInput.value,
+          sanitizeInput(taskTitleInput.value),
           taskDateInput.value,
-          taskDescriptionTextarea.value,
+          sanitizeInput(taskDescriptionTextarea.value),
           generateToken(11),
           radioValue
         );

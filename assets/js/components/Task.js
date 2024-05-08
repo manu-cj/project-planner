@@ -9,7 +9,12 @@ class Task {
         this.name = name;
         this.description = description;
         this.deadline = deadline;
-        this.status = status;
+        if (!status) {
+            this.status = "to do"
+        }
+        else {
+            this.status = status;
+        }
         this.saveToLocalStorage();
     }
 
