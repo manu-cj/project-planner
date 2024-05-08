@@ -48,18 +48,13 @@ main #toDo h2, main #done h2, main #doing h2 {
   font-weight: 400;
   background-color: #484b6a;
   color: white;
-  margin-bottom: 0.5em;
 }
 main #toDo h2 .sort_icon, main #done h2 .sort_icon, main #doing h2 .sort_icon {
   padding: 0 1vw;
   width: 20px;
   height: 20px;
   justify-items: right;
-}
-main #toDo button, main #done button, main #doing button {
-  background-color: #484b6a;
-  color: white;
-  box-shadow: 0px 0px 2px #b4b4b5;
+  cursor: pointer;
 }
 @media screen and (max-width: 768px) {
   main #toDo, main #done, main #doing {
@@ -86,7 +81,7 @@ main .mode {
   background-color: #f0f0f5;
 }
 .tasks-container::-webkit-scrollbar-thumb {
-  background-color: #484b6a;
+  background-color: rgb(228, 226, 226);
   border-radius: 3px;
 }
 
@@ -98,6 +93,17 @@ main .mode {
   align-items: end;
   border-radius: 10px;
   padding: 10px;
+}
+.buttons button {
+  background-color: #484b6a;
+  color: white;
+  box-shadow: 0px 0px 2px #b4b4b5;
+}
+.buttons .add:hover {
+  background-color: lightseagreen;
+}
+.buttons .btnDelete:hover {
+  background-color: tomato;
 }
 
 main.darkMode {
@@ -121,10 +127,27 @@ main.darkMode #toDo h2, main.darkMode #done h2, main.darkMode #doing h2 {
 main.darkMode #toDo p, main.darkMode #done p, main.darkMode #doing p {
   color: #e4e5f1;
 }
-main.darkMode #toDo button, main.darkMode #done button, main.darkMode #doing button {
+main.darkMode #toDo .buttons button, main.darkMode #done .buttons button, main.darkMode #doing .buttons button {
   background-color: #061424;
   color: white;
   box-shadow: 0px 0px 2px #b4b4b5;
+}
+main.darkMode #toDo .buttons .add:hover, main.darkMode #done .buttons .add:hover, main.darkMode #doing .buttons .add:hover {
+  background-color: lightseagreen;
+}
+main.darkMode #toDo .buttons .btnDelete:hover, main.darkMode #done .buttons .btnDelete:hover, main.darkMode #doing .buttons .btnDelete:hover {
+  background-color: tomato;
+}
+main.darkMode #toDo .tasks-container::-webkit-scrollbar, main.darkMode #done .tasks-container::-webkit-scrollbar, main.darkMode #doing .tasks-container::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 15px;
+}
+main.darkMode #toDo .tasks-container::-webkit-scrollbar-track, main.darkMode #done .tasks-container::-webkit-scrollbar-track, main.darkMode #doing .tasks-container::-webkit-scrollbar-track {
+  background-color: #102130;
+}
+main.darkMode #toDo .tasks-container::-webkit-scrollbar-thumb, main.darkMode #done .tasks-container::-webkit-scrollbar-thumb, main.darkMode #doing .tasks-container::-webkit-scrollbar-thumb {
+  background-color: #061424;
+  border-radius: 3px;
 }
 
 body {

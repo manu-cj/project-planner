@@ -10,6 +10,35 @@ import { switchSort } from "./components/sort.js"
 
 displayTasks();
 
+
+// adds toggle on / off to filter icon
+const filterButton = document.querySelector("#filter-toggle");
+filterButton.addEventListener("click", () => {
+    toggleFilterMenu();
+})
+
+// sets filters by default if no preferences stored in local storage
+const filterPreferences = localStorage.getItem('taskFilters');
+if (!filterPreferences) {
+    clearFilters();
+}
+
+const sortDone = document.querySelector("#sort-done");
+sortDone.addEventListener("click", (e) => {
+    switchSort(sortDone);
+})
+
+const sortDoing = document.querySelector("#sort-doing");
+sortDoing.addEventListener("click", (e) => {
+    switchSort(sortDoing);
+})
+
+const sortTodo = document.querySelector("#sort-todo");
+sortTodo.addEventListener("click", (e) => {
+    switchSort(sortTodo);
+})
+
+
 /*Donner lui le type de tache, le texte du bouton submit et 
 l'index, à appeler lors de l'advEventListenner de l'ajout de tache et update*/
 const addTask = document.querySelectorAll('.add');
@@ -86,30 +115,4 @@ buttonDarkMode.addEventListener('change', () => {
     }
 }) 
 
-// adds toggle on / off to filter icon
-const filterButton = document.querySelector("#filter-toggle");
-filterButton.addEventListener("click", () => {
-    toggleFilterMenu();
-})
-
-// sets filters by default if no preferences stored in local storage
-const filterPreferences = localStorage.getItem('taskFilters');
-if (!filterPreferences) {
-    clearFilters();
-}
-
-const sortDone = document.querySelector("#sort-done");
-sortDone.addEventListener("click", (e) => {
-    switchSort(sortDone);
-})
-
-const sortDoing = document.querySelector("#sort-doing");
-sortDoing.addEventListener("click", (e) => {
-    switchSort(sortDoing);
-})
-
-const sortTodo = document.querySelector("#sort-todo");
-sortTodo.addEventListener("click", (e) => {
-    switchSort(sortTodo);
-})
 
