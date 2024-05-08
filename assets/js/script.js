@@ -7,6 +7,7 @@ import {modal} from './components/modal.js';
 import {deleteTaskModal} from './components/delete-task-modal.js';
 import { toggleFilterMenu, clearFilters } from './components/filters.js'
 
+displayTasks();
 
 /*Donner lui le type de tache, le texte du bouton submit et 
 l'index, à appeler lors de l'advEventListenner de l'ajout de tache et update*/
@@ -16,7 +17,6 @@ const addTask = document.querySelectorAll('.add');
             modal('add', 'add-task', i);
     })
 }
-
 
 //Affiche le formulaire pour mettre à jour la tâche sélèctionnée
 const task = document.querySelectorAll('.task');
@@ -96,5 +96,3 @@ const filterPreferences = localStorage.getItem('taskFilters');
 if (!filterPreferences) {
     clearFilters();
 }
-
-displayTasks();
