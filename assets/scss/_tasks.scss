@@ -14,13 +14,11 @@
     .name_block {
         word-break: break-all;
     }
-
     .task-description {
         display: block;
         width: 80%;
         word-break: break-all;
     }
-
     .task-deadline {
         display: flex;
         flex-direction: row;
@@ -69,6 +67,7 @@
     display: flex;
     justify-content: space-between;
     text-align: left;
+    
     h3 {
         font-size: 18px;
         font-weight: 500;
@@ -88,7 +87,6 @@
 }
 
 .controls {
-    width: 20%;
     display: flex;
     flex-direction: row;
     align-self: flex-end;
