@@ -86,4 +86,4 @@ const generateCard = (task) => {
     return taskCard;
 }
 
-export {displayTasks}
+export {displayTasks, getDelta }
