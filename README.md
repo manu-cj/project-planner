@@ -82,7 +82,7 @@
 
 - Tout c'est plutôt bien passé, Les tâches ont toutes était accomplie à temps même si on a tous perdu un peu de temps pour rêgler les autres membres du groupe, mais bon rien de plus normal quand on travail en équipe.
 
-Lien du projet ici -> Lien en attente.
+Lien du projet ici -> (https://manu-cj.github.io/project-planner/)
 
 
 <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2I3dG5wajFnb3dtajZsMjNyM3RpNzRlbDF2bTIzeWR4MzBjb3o4ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/vDaKDs3Jouzfy/giphy.gif" alt="Gif d'un nerd" >
