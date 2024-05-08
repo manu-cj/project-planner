@@ -82,8 +82,8 @@ export function initializeDragDrop() {
                     }
                 }
             }
-            
-            displayTasks();
+            location.reload()
+            // displayTasks();
             return false;
         }
 
