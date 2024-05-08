@@ -6,8 +6,10 @@ import { darkMode, clear } from './components/darkMode.js';
 
 import {modal} from './components/modal.js';
 import {deleteTaskModal} from './components/delete-task-modal.js';
+import { initializeDragDrop } from './components/dragAndDrop.js';
 
 displayTasks();
+initializeDragDrop();
 
 /*Donner lui le type de tache, le texte du bouton submit et 
 l'index, à appeler lors de l'advEventListenner de l'ajout de tache et update*/
