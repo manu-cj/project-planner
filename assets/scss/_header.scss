@@ -7,19 +7,41 @@ header {
     backdrop-filter: blur(6.2px);
     -webkit-backdrop-filter: blur(3px);
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     box-sizing: border-box;
+    @include mobile {
+        justify-content: space-around;
+    }
     h1 {
+        margin-left: 15px;
         font-weight: 400;
         align-self:center;
         justify-self: center;
+        @include mobile {
+            font-size: 25px;
+            float: left;
+        }
     }
     nav {
-        display:none;
+        margin-right: 200px;
+        a {
+            font-size: 18px;
+            margin: 5px;
+            text-decoration: none;
+            color: white;
+
+            &:hover {
+                text-decoration-line: underline;
+                color: #dee2e2;
+            }
+        } 
         @include mobile {
             display:block;
+            margin-right: 50px;
             a {
+                font-size: 15px;
                 text-decoration: none;
+                color: white;
             }    
         }
     }
@@ -38,6 +60,7 @@ header {
         padding-left: 10px;
         height: 30px;
         width: 30px;
+        cursor: pointer;
     }
 }
 
