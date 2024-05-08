@@ -19,10 +19,10 @@ main {
     flex-direction: column;
   }
 }
-main section {
+main #toDo, main #done, main #doing {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  width: 30%;
   margin: 1.5em;
   background-color: #f0f0f5;
   border-radius: 10px;
@@ -31,7 +31,7 @@ main section {
   -webkit-backdrop-filter: blur(3px);
   text-align: center;
 }
-main section h2 {
+main #toDo h2, main #done h2, main #doing h2 {
   padding: 1vh 0;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -40,8 +40,13 @@ main section h2 {
   color: white;
   margin-bottom: 0.5em;
 }
+main #toDo button, main #done button, main #doing button {
+  background-color: #484b6a;
+  color: white;
+  box-shadow: 0px 0px 2px #b4b4b5;
+}
 @media screen and (max-width: 768px) {
-  main section {
+  main #toDo, main #done, main #doing {
     width: 95%;
   }
 }
@@ -60,8 +65,31 @@ main .mode {
   justify-content: flex-end;
 }
 
-.darkMode section {
-  background-color: #4D7F9D;
+main.darkMode {
+  background-color: #13192d;
+}
+main.darkMode #toDo, main.darkMode #done, main.darkMode #doing {
+  background-color: #102130;
+  box-shadow: 0px 0px 5px #b4b4b5;
+}
+main.darkMode #toDo .task, main.darkMode #done .task, main.darkMode #doing .task {
+  background-color: #061424;
+  color: #e4e5f1;
+  box-shadow: rgba(184, 183, 183, 0.2) 0px 2px 8px 0px;
+}
+main.darkMode #toDo .task:hover, main.darkMode #done .task:hover, main.darkMode #doing .task:hover {
+  box-shadow: rgba(255, 254, 254, 0.297) 0px 1px 2px, rgba(255, 254, 254, 0.297) 0px 0px 0px 2px;
+}
+main.darkMode #toDo h2, main.darkMode #done h2, main.darkMode #doing h2 {
+  background-color: #061424;
+}
+main.darkMode #toDo p, main.darkMode #done p, main.darkMode #doing p {
+  color: #e4e5f1;
+}
+main.darkMode #toDo button, main.darkMode #done button, main.darkMode #doing button {
+  background-color: #061424;
+  color: white;
+  box-shadow: 0px 0px 2px #b4b4b5;
 }
 
 body {
@@ -78,18 +106,20 @@ main {
 
 header {
   display: flex;
+  position: relative;
   height: 10vh;
   background-color: #484b6a;
   box-shadow: 0px 0px 5px #484b6a;
   backdrop-filter: blur(6.2px);
   -webkit-backdrop-filter: blur(3px);
   align-items: center;
-  text-align: center;
   justify-content: center;
   box-sizing: border-box;
 }
 header h1 {
   font-weight: 400;
+  align-self: center;
+  justify-self: center;
 }
 header nav {
   display: none;
@@ -103,10 +133,30 @@ header nav {
   }
 }
 
-.darkMode {
+.filters {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  position: absolute;
+  right: 3%;
+}
+@media screen and (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+  }
+}
+.filters img {
+  padding-left: 10px;
+  height: 30px;
+  width: 30px;
+}
+
+header.darkMode {
+  background-color: #061424;
+  box-shadow: 0px 0px 5px #b4b4b5;
   color: #E8EDEE;
 }
-.darkMode a {
+header.darkMode a {
   color: #E8EDEE;
 }
 
@@ -190,7 +240,7 @@ button {
 }
 .my-modal .modal-section {
   width: 33%;
-  background-color: rgb(250, 250, 250);
+  background-color: #f0f0f5;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -262,7 +312,7 @@ button {
   cursor: pointer;
 }
 .my-modal .modal-section .form-task input[type=submit]:hover {
-  background-color: rgb(0, 191, 102);
+  background-color: lightseagreen;
 }
 .my-modal .modal-section .form-delete {
   width: 100%;
@@ -285,17 +335,27 @@ button {
   cursor: pointer;
   border-radius: 5px;
 }
-.my-modal .modal-section .form-delete input[name=delete-all-task] {
-  background-color: rgb(0, 191, 102);
-}
 .my-modal .modal-section .form-delete input[name=delete-all-task]:hover {
-  background-color: rgb(3, 148, 80);
+  background-color: lightseagreen;
 }
-.my-modal .modal-section .form-delete input[name=not-delete] {
-  background-color: tomato;
+.my-modal .modal-section .form-delete input[name=delete-task]:hover {
+  background-color: lightseagreen;
 }
 .my-modal .modal-section .form-delete input[name=not-delete]:hover {
-  background-color: rgb(214, 45, 15);
+  background-color: tomato;
+}
+.my-modal .darkMode ::-moz-placeholder {
+  color: #CED4DA;
+}
+.my-modal .darkMode ::placeholder {
+  color: #CED4DA;
+}
+.my-modal .darkMode input[type=submit] {
+  width: 30%;
+  cursor: pointer;
+}
+.my-modal .darkMode input[type=submit]:hover {
+  background-color: lightseagreen;
 }
 
 @media only screen and (max-width: 767px) {
@@ -303,6 +363,52 @@ button {
     width: 80% !important;
   }
 }
+.filter-menu {
+  display: flex;
+  position: absolute;
+  z-index: 5;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  height: 70vh;
+  width: 25vw;
+  padding: 2%;
+  top: 8.5vh;
+  right: 3%;
+}
+@media screen and (max-width: 768px) {
+  .filter-menu {
+    width: 50vw;
+  }
+}
+
+.filter-content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+.filter-content > * {
+  margin: 1vh 0;
+}
+.filter-content h3 {
+  margin-bottom: 2vh;
+}
+.filter-content section {
+  display: flex;
+  flex-direction: column;
+}
+.filter-content section > * {
+  margin: 0.2em 0;
+}
+
+.filter input[type=text] {
+  padding: 5px;
+  width: 65%;
+}
+
+footer {
+  height: 4vh;
+}
+
 .task {
   margin: 0.6em 1em;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -326,7 +432,7 @@ button {
   display: flex;
   align-items: center;
   text-align: justify;
-  padding: 0 0.4rem;
+  padding: 0.2em 0.4rem;
   word-wrap: wrap;
 }
 
@@ -340,6 +446,10 @@ button {
   justify-content: space-between;
   text-align: right;
 }
+.name_block h3 {
+  font-size: 18px;
+  font-weight: 500;
+}
 @media screen and (max-width: 768px) {
   .name_block {
     flex-direction: column;
@@ -349,6 +459,10 @@ button {
     order: 2;
     align-self: flex-start;
   }
+}
+
+.task-description {
+  font-size: 15px;
 }
 
 .controls {
@@ -369,10 +483,19 @@ button {
   color: red;
 }
 
+.task .darkMode {
+  background-color: #061424;
+  color: #e4e5f1;
+  box-shadow: rgba(184, 183, 183, 0.2) 0px 2px 8px 0px;
+}
+.task .darkMode:hover {
+  box-shadow: rgba(255, 254, 254, 0.297) 0px 1px 2px, rgba(255, 254, 254, 0.297) 0px 0px 0px 2px;
+}
+
 body {
-  background-color: #484b6a;
+  background-color: #e4e5f1;
 }
 
 .darkMode {
-  background-color: #3C5064;
+  background-color: #13192d;
 }

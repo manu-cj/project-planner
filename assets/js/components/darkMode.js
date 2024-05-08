@@ -13,7 +13,7 @@ export function darkMode () {
 export function clear () {
     body.classList.remove('darkMode');
     header.classList.remove('darkMode');
-    main.classList.remove('darkMode');
+    main.classList.remove('darkMode');  
     localStorage.setItem('darkModeEnabled', 'false');
 }
 

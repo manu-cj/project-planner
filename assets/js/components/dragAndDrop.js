@@ -38,12 +38,8 @@ export function initializeDragDrop() {
             e.stopPropagation();
             e.preventDefault();
 
-            
-
-
             const srcParent = dragSrcEl.parentNode;
             const destParent = this.parentNode;
-
 
             const destinationColumnId = destParent.dataset.columnId;
             const itemId = dragSrcEl.id;
@@ -58,12 +54,14 @@ export function initializeDragDrop() {
             // Déplacement entre colonnes
             if (srcParent !== destParent) {
                 let insertBeforeElement = this.nextSibling;
+                let a = document.getElementById('a');
                 if (!insertBeforeElement) {
                     destParent.appendChild(dragSrcEl);
                 } else {
                     destParent.insertBefore(dragSrcEl, insertBeforeElement);
-                }
-            }
+                    }
+                 }
+            
 
             // Déplacement dans une colonne
             if (dragSrcEl !== this) {
@@ -84,17 +82,11 @@ export function initializeDragDrop() {
                     }
                 }
             }
-
-            // Gestion des zones vides avec création du placeholder
-            /*if (destParent.children.length === 0) {
-                const placeholder = createDraggablePlaceholder();
-                destParent.appendChild(placeholder);
-            }*/
             
             return false;
         }
 
-        const emptyContainer = document.querySelector('.tasks-container[data-column-id="done"]');
+        /*const emptyContainer = document.querySelector('.tasks-container[data-column-id="done"]');
         let placeholder = null;
         let placeholderAdded = false;
     
@@ -137,7 +129,7 @@ export function initializeDragDrop() {
             });
 
             return placeholder;
-        }
+        }*/
 
         // Sélection de tous les éléments .task dans les .tasks-container
         items = document.querySelectorAll('.tasks-container .task');
@@ -154,8 +146,6 @@ export function initializeDragDrop() {
             });
         }
     });
-
-    
 
 }
 

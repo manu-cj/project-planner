@@ -12,6 +12,9 @@
 <body>
     <header>
         <h1>Project Planner</h1>
+        <div class="filters">
+            <span class="filter">Filters</span><img id="filter-toggle" src="assets/images/filter.svg">
+        </div>
         <nav>
             <a href="#toDo">ToDo</a>
             <a href="#doing">Doing</a>
@@ -19,12 +22,13 @@
         </nav>  
     </header>
     <main>
+        <div class="filter-menu" style="display:none;"></div>
         <section id="toDo">
             <h2>To Do</h2>
             <div class="tasks-container" data-column-id="todo"></div>
             <div class="buttons">
                 <button class="add">Add</button>
-                <button class="btnDelete">Delete All</button>
+                <button class="btnDelete" id="delete-all-todo">Delete All</button>
             </div>
         </section>
         <section id="doing">
@@ -32,15 +36,15 @@
             <div class="tasks-container" data-column-id="doing"></div>
             <div class="buttons">
                 <button class="add">Add</button>
-                <button class="btnDelete">Delete All</button>
+                <button class="btnDelete" id="delete-all-doing">Delete All</button>
             </div>
         </section>
         <section id="done">
             <h2>Done</h2>
-            <div class="tasks-container" data-column-id="done"><div class="task" style="opacity: 0;"></div></div>
+            <div class="tasks-container" data-column-id="done"></div>
             <div class="buttons">
                 <button class="add">Add</button>
-                <button class="btnDelete">Delete All</button>
+                <button class="btnDelete" id="delete-all-done">Delete All</button>
             </div>
         </section>
         <div class="mode">
