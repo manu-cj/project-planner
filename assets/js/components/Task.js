@@ -8,9 +8,20 @@ class Task {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.deadline = deadline;
+        if (deadline === "") {
+            // if no date, add today's date as default.
+            let now = new Date();
+            let year = now.getFullYear();
+            let month = (now.getMonth() + 1).toString().padStart(2, '0');
+            let day = now.getDate().toString().padStart(2, '0');
+            // Concatenate the year, month, and day with hyphens
+            this.deadline = year + '-' + month + '-' + day;
+        }
+        else {
+            this.deadline = deadline;
+        }
         if (!status) {
-            this.status = "to do"
+            this.status = "to do";
         }
         else {
             this.status = status;
