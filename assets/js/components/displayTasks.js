@@ -1,4 +1,6 @@
 import { getTasksFromStorage } from "./getTasks.js";
+import { modal } from "./modal.js"
+import { deleteTaskModal } from "./delete-task-modal.js";
 
 const getDelta = (task) => {
     let now = new Date();
@@ -35,10 +37,8 @@ const displayTasks = () => {
     toDoTree.style.display = todoChecked ? "flex" : "none";
     doingTree.style.display = doingChecked ? "flex" : "none";
     doneTree.style.display = doneChecked ? "flex" : "none";
-
     for (let task of tasks) {
         let delta = getDelta(task);
-        
         const shouldDisplay = (
             (keyword === '' || task.name.toLowerCase().includes(keyword) || task.description.includes(keyword)) 
             && 
@@ -59,9 +59,29 @@ const displayTasks = () => {
                 const toDoContainer = toDoTree.querySelector(".tasks-container");
                 toDoContainer.appendChild(taskCard);
             }
-        }         
+            
+            // Event listener for editing task
+            const editButton = taskCard.querySelector('.edit_task');
+            editButton.addEventListener('click', () => {
+                modal('update', 'update-task', task.id);
+            });
+            // Event listener for deleting task
+            const deleteButton = taskCard.querySelector('.delete_task');
+            deleteButton.addEventListener('click', (e) => {
+                let id = e.target.id.split("_")[1];
+                deleteTaskModal('Delete this task ?', 'delete-task', id);
+                const deleteOption = document.querySelector("#delete-task");
+                deleteOption.addEventListener("click", () => {
+                    const tasks = getTasksFromStorage();
+                    let taskIndex = tasks.findIndex(t => t.id === id);
+                    tasks.splice(taskIndex, 1);
+                    localStorage.setItem('tasks', JSON.stringify(tasks));
+                    displayTasks();
+                });
+            });
+        }
     }
-    displayNoTask();
+displayNoTask();
 }
 
 const generateCard = (task) => {

@@ -77,10 +77,11 @@ const deleteTaskModal = (textLabel, inputId, index) => {
       })
   }
 
+
   function deleteAll(type, id) {
     let tasks = getTasksFromStorage();
     if (inputId === id) {
-        inputYes.addEventListener('click', () => {
+        inputYes.addEventListener('click', () => {   
             tasks.forEach(tas => {
                 if (tas.status === type) {
                     tas.deleteTask();
