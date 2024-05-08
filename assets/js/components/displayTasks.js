@@ -42,7 +42,7 @@ const displayTasks = () => {
         const shouldDisplay = (
             (keyword === '' || task.name.toLowerCase().includes(keyword) || task.description.includes(keyword)) 
             && 
-            ((delta == 0 && endOfDayChecked) || (delta > 1 && dueNextDaysChecked) ||  (delta < 0 && overdueChecked))
+            ((delta == 0 && endOfDayChecked) || (delta > 0 && dueNextDaysChecked) ||  (delta < 0 && overdueChecked))
         );
         if (shouldDisplay) {
             let taskCard = generateCard(task);
