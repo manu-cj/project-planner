@@ -506,8 +506,8 @@ footer {
   transform: scale(110%);
 }
 
-.important {
-  color: red;
+.overdue {
+  color: red !important;
 }
 
 .task .darkMode {
