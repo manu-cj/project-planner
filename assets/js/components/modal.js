@@ -192,6 +192,10 @@ if (actionType === "update") {
       taskTitleInput.value = tasks[idTask].name;
       taskDescriptionTextarea.value = tasks[idTask].description;
       taskDateInput.value = tasks[idTask].deadline;
+      if (tasks[idTask].status === "todo") {
+        radioInputs[0].checked = true;
+        radioValue = "todo";
+      }
       if (tasks[idTask].status === "doing") {
         radioInputs[1].checked = true;
         radioValue = "doing";
