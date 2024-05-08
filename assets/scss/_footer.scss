@@ -10,6 +10,10 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    @include mobile {
+        position: relative;
+        bottom: auto;
+    }
 
     .colab {
         text-align: center;

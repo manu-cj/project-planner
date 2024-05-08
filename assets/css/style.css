@@ -537,6 +537,12 @@ footer {
   flex-direction: row;
   justify-content: center;
 }
+@media screen and (max-width: 768px) {
+  footer {
+    position: relative;
+    bottom: auto;
+  }
+}
 footer .colab {
   text-align: center;
 }
