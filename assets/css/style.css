@@ -36,6 +36,7 @@ main #toDo, main #done, main #doing {
 @media screen and (max-width: 768px) {
   main #toDo, main #done, main #doing {
     height: 80%;
+    width: 100%;
   }
 }
 main button {
@@ -185,6 +186,7 @@ header {
 }
 @media screen and (max-width: 768px) {
   header {
+    flex-direction: column;
     justify-content: space-around;
   }
 }

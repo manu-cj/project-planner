@@ -25,6 +25,7 @@ main {
         text-align: center;
         @include mobile {
             height: 80%;
+            width : 100%;
         }
         }
             button {
@@ -64,8 +65,6 @@ main {
         height : 25px;
     }
 }
-
-
 
 .tasks-container {
     padding-top: .5em;
