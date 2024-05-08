@@ -61,6 +61,7 @@ const displayTasks = () => {
             }
         }         
     }
+    displayNoTask();
 }
 
 const generateCard = (task) => {
@@ -85,5 +86,16 @@ const generateCard = (task) => {
     } 
     return taskCard;
 }
+
+//Affiche quelque chose quand il n'y a rien dans une catègorie aide aussi pour le drag and drop
+const displayNoTask = () => {
+    const taskContainer = document.querySelectorAll('.tasks-container');
+    for (let i = 0; i < taskContainer.length; i++) {
+        if (taskContainer[i].childElementCount < 1) {
+            taskContainer[i].innerHTML = "<div class='drag-on'>Drag-on</div><p> No tasks at the moment ! </p>";
+        }
+    }
+}
+
 
 export {displayTasks, getDelta }
