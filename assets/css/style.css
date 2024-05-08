@@ -286,6 +286,7 @@ button {
 }
 
 .slider {
+  z-index: 1;
   background-color: rgba(255, 255, 255, 0.7490196078);
   border-radius: 100px;
   padding: 1px;
@@ -524,7 +525,34 @@ button {
 }
 
 footer {
-  height: 4vh;
+  width: 100%;
+  background-color: rgba(240, 240, 245, 0);
+  position: absolute;
+  margin: 0;
+  bottom: 0;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  z-index: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+footer .colab {
+  text-align: center;
+}
+footer .colab i {
+  font-size: 24px;
+  color: #484b6a;
+}
+
+footer.darkMode {
+  background-color: #061424;
+}
+footer.darkMode .colab {
+  color: #e4e5f1;
+}
+footer.darkMode .colab i {
+  color: #5c5c5c;
 }
 
 .task {
