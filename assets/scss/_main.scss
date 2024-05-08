@@ -21,27 +21,6 @@ main {
         backdrop-filter: blur(6.2px);
         -webkit-backdrop-filter: blur(3px);
         text-align: center;
-        h2 {
-            justify-content:center;
-            align-items: center;
-            display:flex;
-            padding: 1vh 0;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px; 
-            font-weight: 400;
-            background-color: #484b6a;
-            color: white;
-            margin-bottom: .5em;
-            .sort_icon {
-                padding : 0 1vw; 
-                width: 20px;
-                height : 20px;
-                // padding-right: 1vw;
-                justify-items: right;
-
-            }
-        }
-
         button {
             background-color: #484b6a;
             color: white;
@@ -58,6 +37,29 @@ main {
         right: 0px;
     }
 }
+
+.section-title {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #484b6a;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 1vh;
+    padding: 1vh 0;
+    h2 {
+        margin-left:45%;
+        font-weight: 400;
+        color: white;
+    }
+    img {
+        padding-right: 30px;
+        width: 25px;
+        height : 25px;
+    }
+}
+
+
 
 .tasks-container {
     height: 80%;
@@ -86,7 +88,7 @@ main.darkMode {
 
         }
 
-        h2 {
+        .section-title {
             background-color: #061424;
         }
 
