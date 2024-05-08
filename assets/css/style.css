@@ -38,24 +38,10 @@ main #toDo, main #done, main #doing {
     height: 80%;
   }
 }
-main #toDo h2, main #done h2, main #doing h2 {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  padding: 1vh 0;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  font-weight: 400;
+main button {
   background-color: #484b6a;
   color: white;
-  margin-bottom: 0.5em;
-}
-main #toDo h2 .sort_icon, main #done h2 .sort_icon, main #doing h2 .sort_icon {
-  padding: 0 1vw;
-  width: 20px;
-  height: 20px;
-  justify-items: right;
-  cursor: pointer;
+  box-shadow: 0px 0px 2px #b4b4b5;
 }
 @media screen and (max-width: 768px) {
   main {
