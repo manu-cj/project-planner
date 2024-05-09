@@ -36,6 +36,9 @@ main #toDo, main #done, main #doing {
   -webkit-backdrop-filter: blur(3px);
   text-align: center;
 }
+main #toDo .dragDiv, main #done .dragDiv, main #doing .dragDiv {
+  opacity: 0;
+}
 @media screen and (max-width: 768px) {
   main #toDo, main #done, main #doing {
     width: 100%;
