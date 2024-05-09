@@ -552,13 +552,13 @@ footer .colab i {
 }
 
 footer.darkMode {
-  background-color: #061424;
+  background-color: none;
 }
 footer.darkMode .colab {
   color: #e4e5f1;
 }
 footer.darkMode .colab i {
-  color: #5c5c5c;
+  color: #a4a0a0;
 }
 
 .task {
