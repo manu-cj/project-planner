@@ -116,7 +116,7 @@ const displayNoTask = () => {
     const taskContainer = document.querySelectorAll('.tasks-container');
     for (let i = 0; i < taskContainer.length; i++) {
         if (taskContainer[i].childElementCount < 1) {
-            taskContainer[i].innerHTML = "<div class='task' draggable='true'>Drag-on</div><p> No tasks at the moment ! </p>";
+            taskContainer[i].innerHTML = "<div class='task dragDiv' draggable='true'>Drag-here</div><p> No tasks at the moment ! </p>";
         }
     }
 }

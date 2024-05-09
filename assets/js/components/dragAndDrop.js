@@ -3,9 +3,12 @@ let dragSrcEl = null;
 import { displayTasks } from "./displayTasks.js";
 export function initializeDragDrop() {
     document.addEventListener('DOMContentLoaded', () => {
-        
+        let dragDiv = document.querySelectorAll('.dragDiv');
         function handleDragStart(e) {
             this.style.opacity = '0.1';
+            dragDiv.forEach(drag => {
+                drag.style.opacity = '0.5';
+            });
             dragSrcEl = this;
             e.dataTransfer.effectAllowed = 'move';
             e.dataTransfer.setData('text/html', this.innerHTML);
