@@ -4,7 +4,6 @@ let main = document.querySelector('main');
 let footer = document.querySelector('footer');
 let filterMenu = document.querySelector('.filter-menu');
 
-
 export function darkMode () {
     body.classList.add('darkMode');
     header.classList.add('darkMode');
@@ -22,4 +21,3 @@ export function clear () {
     footer.classList.remove('darkMode');
     localStorage.setItem('darkModeEnabled', 'false');
 }
-

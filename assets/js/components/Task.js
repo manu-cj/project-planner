@@ -29,22 +29,6 @@ class Task {
         this.saveToLocalStorage();
     }
 
-    // Allows to edit value of any task property.
-    editTask(property, newValue) {
-        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-        const index = tasks.findIndex(task => task.id === this.id);
-        if (index === -1) {
-            return "Error: Task not found.";
-        }
-        if (!Task.properties.includes(property)) {
-            return "Error: The property you tried to edit does not exist.";
-        }
-        // Update the property value
-        tasks[index][property] = newValue;
-        // Save the modified tasks array back to localStorage
-        localStorage.setItem("tasks", JSON.stringify(tasks));
-    }
-
     // Deletes a Task from Storage
     deleteTask() {
         let tasks = JSON.parse(localStorage.getItem("tasks")) || [];

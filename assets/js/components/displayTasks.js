@@ -1,6 +1,7 @@
 import { getTasksFromStorage } from "./getTasks.js";
 import { modal } from "./modal.js"
 import { deleteTaskModal } from "./delete-task-modal.js";
+import { handleDragStart, handleDragEnd, handleDragOver,handleDragEnter, handleDragLeave, handleDrop } from "./dragAndDrop.js"
 
 const getDelta = (task) => {
     let now = new Date();
@@ -82,6 +83,19 @@ const displayTasks = () => {
         }
     }
 displayNoTask();
+let items  =  document.querySelectorAll('.tasks-container .task');
+
+// Attache des gestionnaires d'événements aux éléments .task
+if (items) {
+    items.forEach(item => {
+        item.addEventListener('dragstart', handleDragStart);
+        item.addEventListener('dragend', handleDragEnd);
+        item.addEventListener('dragover', handleDragOver);
+        item.addEventListener('dragenter', handleDragEnter);
+        item.addEventListener('dragleave', handleDragLeave);
+        item.addEventListener('drop', handleDrop);
+    });
+}
 }
 
 const generateCard = (task) => {

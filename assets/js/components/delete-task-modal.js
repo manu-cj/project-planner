@@ -37,8 +37,6 @@ const deleteTaskModal = (textLabel, inputId, index) => {
     labelDelete.htmlFor = inputId;
     labelDelete.textContent = textLabel
     
-
-
     //Implèmentation des élèments dans le document
     body.appendChild(myModal);
     myModal.appendChild(modalSection);

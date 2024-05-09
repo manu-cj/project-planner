@@ -97,7 +97,6 @@ const modal = (actionType, submitValue, index) => {
       const randomIndex = Math.floor(Math.random() * chars.length);
       token += chars.charAt(randomIndex);
     }
-
     return token;
   }
 
