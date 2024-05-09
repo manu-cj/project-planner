@@ -83,10 +83,6 @@ const displayTasks = () => {
         }
     }
     displayNoTask();
-    // let dragDiv = document.querySelectorAll('.dragDiv');
-    // dragDiv.forEach(drag => {
-    //     drag.style.opacity = '0.5';
-    // });
 
     let items  =  document.querySelectorAll('.tasks-container .task');
     // Attache des gestionnaires d'événements aux éléments .task
