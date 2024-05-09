@@ -26,28 +26,31 @@ main {
         backdrop-filter: blur(6.2px);
         -webkit-backdrop-filter: blur(3px);
         text-align: center;
+        .dragDiv {
+            opacity: 0;
+        }
         @include mobile {
             width: 100%;
             height: 80%;
             width : 100%;
         }
-    }
-        button {
-        background-color: #484b6a;
-        color: white;
-        box-shadow: 0px 0px 2px #b4b4b5;
-    }
+        }
+            button {
+            background-color: #484b6a;
+            color: white;
+            box-shadow: 0px 0px 2px #b4b4b5;
+        }
         
-    @include mobile {
-        width: 95%;
-    }  
-}
+        @include mobile {
+            width: 95%;
+        }  
+    }
+    .mode {
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+    }
 
-.mode {
-    position: fixed;
-    bottom: 0px;
-    right: 0px;
-}
 
 .section-title {
     display:flex;
@@ -119,6 +122,10 @@ main.darkMode {
         background-color: #102130;
         box-shadow: 0px 0px 5px #b4b4b5;
 
+        .dragDiv {
+            opacity: 0;
+        }
+
         .task {
             background-color: #061424;
             color: #e4e5f1;
@@ -127,6 +134,7 @@ main.darkMode {
             &:hover {
                 box-shadow: rgba(255, 254, 254, 0.297) 0px 1px 2px, rgba(255, 254, 254, 0.297) 0px 0px 0px 2px;
             }
+
         }
 
         .section-title {
@@ -164,5 +172,7 @@ main.darkMode {
                 border-radius: 3px;
             }
         }
+        
+        
     }
 }

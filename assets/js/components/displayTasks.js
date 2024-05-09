@@ -82,20 +82,24 @@ const displayTasks = () => {
             });
         }
     }
-displayNoTask();
-let items  =  document.querySelectorAll('.tasks-container .task');
+    displayNoTask();
+    // let dragDiv = document.querySelectorAll('.dragDiv');
+    // dragDiv.forEach(drag => {
+    //     drag.style.opacity = '0.5';
+    // });
 
-// Attache des gestionnaires d'événements aux éléments .task
-if (items) {
-    items.forEach(item => {
-        item.addEventListener('dragstart', handleDragStart);
-        item.addEventListener('dragend', handleDragEnd);
-        item.addEventListener('dragover', handleDragOver);
-        item.addEventListener('dragenter', handleDragEnter);
-        item.addEventListener('dragleave', handleDragLeave);
-        item.addEventListener('drop', handleDrop);
+    let items  =  document.querySelectorAll('.tasks-container .task');
+    // Attache des gestionnaires d'événements aux éléments .task
+    if (items) {
+        items.forEach(item => {
+            item.addEventListener('dragstart', handleDragStart);
+            item.addEventListener('dragend', handleDragEnd);
+            item.addEventListener('dragover', handleDragOver);
+            item.addEventListener('dragenter', handleDragEnter);
+            item.addEventListener('dragleave', handleDragLeave);
+            item.addEventListener('drop', handleDrop);
     });
-}
+    }
 }
 
 const generateCard = (task) => {
@@ -130,7 +134,7 @@ const displayNoTask = () => {
     const taskContainer = document.querySelectorAll('.tasks-container');
     for (let i = 0; i < taskContainer.length; i++) {
         if (taskContainer[i].childElementCount < 1) {
-            taskContainer[i].innerHTML = "<div class='task' draggable='true'>Drag-on</div><p> No tasks at the moment ! </p>";
+            taskContainer[i].innerHTML = "<div class='task dragDiv' draggable='true'>Drag-here</div><p> No tasks at the moment ! </p>";
         }
     }
 }

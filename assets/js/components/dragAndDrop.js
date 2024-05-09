@@ -3,6 +3,10 @@ let dragSrcEl = null;
 
 function handleDragStart(e) {
     this.style.opacity = '0.1';
+    let dragDiv = document.querySelectorAll('.dragDiv');
+    dragDiv.forEach(drag => {
+        drag.style.opacity = '0.5';
+    });
     dragSrcEl = this;
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', this.innerHTML);
