@@ -49,21 +49,27 @@ main {
 
 
 .section-title {
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
+    display:block;
+    text-align: center;
+
     background-color: #484b6a;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     margin-bottom: 1vh;
     padding: 1vh 0;
+    > * {
+        text-align: right;
+        text-justify: right;
+    }
     h2 {
-        margin-left:45%;
+        float:center;
         font-weight: 400;
         color: white;
+        display:inline;
     }
     img {
-        padding-right: 30px;
+        position:absolute;
+        right: 20px;
         width: 25px;
         height : 25px;
     }
